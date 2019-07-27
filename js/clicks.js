@@ -15,7 +15,7 @@ $.ajax({
         'title' : title
     },
     'dataType' : 'json',
-    'method' : 'GET',
+    'method' : 'POST',
     'success' : setClicks,
     'error' : setClicks
 });
