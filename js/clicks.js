@@ -10,7 +10,7 @@ var setClicks = function(data){
 }
 
 $.ajax({
-    'url' : 'http://104.168.246.59/myblog/clicks.php',
+    'url' : '//104.168.246.59/myblog/clicks.php',
     'data' : {
         'title' : title
     },
