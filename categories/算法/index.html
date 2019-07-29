@@ -98,7 +98,7 @@
 <meta name="keywords" content="技术,积累,分享">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/tags/算法/index.html">
+<meta property="og:url" content="https://yuerenyu.github.io/categories/算法/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
 <meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/tags/算法/">
+  <link rel="canonical" href="https://yuerenyu.github.io/categories/算法/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>Tag: 算法 | yuerenyu's Blog</title>
+  <title>Category: 算法 | yuerenyu's Blog</title>
   
 
 
@@ -247,7 +247,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -263,7 +263,7 @@
         
         
           
-          <li class="menu-item menu-item-categories">
+          <li class="menu-item menu-item-categories menu-item-active">
 
     
     
@@ -346,11 +346,11 @@
   
   
   
-  <div class="post-block tag">
+  <div class="post-block category">
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>算法<small>Tag</small>
+        <h1>算法<small>Category</small>
         </h1>
       </div>
 
@@ -373,58 +373,6 @@
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-07-29T21:18:31+08:00" content="2019-07-29">
           07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/23/290-Word-Pattern/" itemprop="url">
-            
-              <span itemprop="name">290. Word Pattern</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-23T18:28:52+08:00" content="2019-07-23">
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/22/234-Palindrome-Linked-List/" itemprop="url">
-            
-              <span itemprop="name">234. Palindrome Linked List</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-22T17:35:10+08:00" content="2019-07-22">
-          07-22
         </time>
       </div>
 
@@ -785,8 +733,8 @@
       //https://hexo.io/docs/variables.html
       var isPost = ''.length > 0
       var isArchive = '' === 'true'
-      var isCategory = ''.length > 0
-      var isTag = '算法'.length > 0
+      var isCategory = '算法'.length > 0
+      var isTag = ''.length > 0
 
       if (isPost) { //is article page
         var title = ''
@@ -797,7 +745,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("二分查找取mid的思考");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
