@@ -94,17 +94,22 @@
 
 
 
-  <meta name="description" content="一个程序员的自我救赎">
-<meta name="keywords" content="技术,积累,分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/archives/2019/index.html">
+  <meta name="description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
+<meta name="keywords" content="linux,cp,mv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux cp与mv的区别">
+<meta property="og:url" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
-<meta property="og:description" content="一个程序员的自我救赎">
+<meta property="og:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/2.mv%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/3.cp%E7%BB%93%E6%9E%9C.png">
+<meta property="og:updated_time" content="2019-08-04T12:48:48.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuerenyu&#39;s Blog">
-<meta name="twitter:description" content="一个程序员的自我救赎">
+<meta name="twitter:title" content="Linux cp与mv的区别">
+<meta name="twitter:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
+<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png">
 
 
 
@@ -112,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/archives/2019/">
+  <link rel="canonical" href="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/">
 
 
 
@@ -122,7 +127,7 @@
   };
 </script>
 
-  <title>Archive | yuerenyu's Blog</title>
+  <title>Linux cp与mv的区别 | yuerenyu's Blog</title>
   
 
 
@@ -193,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,7 +284,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -299,25 +304,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -343,183 +329,232 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuerenyu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Linux cp与mv的区别
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+
           
-        
-        Um..! 4 posts in total. Keep on posting.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+          
 
-        
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+              
+                
+              
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/04/Linux-cp与mv的区别/" itemprop="url">
+              <time title="Created: 2019-08-04 19:25:04 / Modified: 20:48:48" itemprop="dateCreated datePublished" datetime="2019-08-04T19:25:04+08:00">2019-08-04</time>
+            </span>
+          
+
+          
             
-              <span itemprop="name">Linux cp与mv的区别</span>
+
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-04T19:25:04+08:00" content="2019-08-04">
-          08-04
-        </time>
-      </div>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
-    </header>
-  </article>
+                
+                
+              
+            </span>
+          
 
+          
+            
+            
+          
 
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">273</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/29/二分查找取mid的思考/" itemprop="url">
-            
-              <span itemprop="name">二分查找取mid的思考</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-29T21:18:31+08:00" content="2019-07-29">
-          07-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <p>现在我们当前目录下有个可执行文件login，我们看一下它的信息：</p>
+<p><img src="/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png" alt="1.文件显示"></p>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>现在我们用mv命令将这个文件移动到/usr/bin中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv login /usr/bin</span><br></pre></td></tr></table></figure>
 
-        
-        
+<p>因为当前不是root用户所以前边加了sudo，看一下执行的结果：</p>
+<p><img src="/2019/08/04/Linux-cp与mv的区别/2.mv%E7%BB%93%E6%9E%9C.png" alt="2. mv 结果"></p>
+<p>可以看到用户、组、创建时间与mv前保持一致。</p>
+<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>再来看一下cp，用cp命令将这个文件复制到/usr/bin中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp login /usr/bin</span><br></pre></td></tr></table></figure>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/23/290-Word-Pattern/" itemprop="url">
-            
-              <span itemprop="name">290. Word Pattern</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-23T18:28:52+08:00" content="2019-07-23">
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<p><img src="/2019/08/04/Linux-cp与mv的区别/3.cp%E7%BB%93%E6%9E%9C.png" alt="3. cp结果"></p>
+<p>很明显，用户、组、创建时间发生了变化。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>mv只是移动了文件，文件内容文件属性均与之前保持一致；cp是复制了文件内容，重新创建了文件属性。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/07/22/234-Palindrome-Linked-List/" itemprop="url">
-            
-              <span itemprop="name">234. Palindrome Linked List</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-22T17:35:10+08:00" content="2019-07-22">
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/cp/" rel="tag"># cp</a>
+          
+            <a href="/tags/mv/" rel="tag"># mv</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/29/二分查找取mid的思考/" rel="next" title="二分查找取mid的思考">
+                <i class="fa fa-chevron-left"></i> 二分查找取mid的思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -539,8 +574,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -632,6 +676,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mv"><span class="nav-number">1.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp"><span class="nav-number">2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -776,6 +837,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   
 
@@ -791,6 +856,8 @@
 
   
 
+
+  
 
 
   
@@ -865,13 +932,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/docs/variables.html
-      var isPost = ''.length > 0
-      var isArchive = 'true' === 'true'
+      var isPost = 'Linux cp与mv的区别'.length > 0
+      var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = ''
+        var title = 'Linux cp与mv的区别'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -879,7 +946,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
