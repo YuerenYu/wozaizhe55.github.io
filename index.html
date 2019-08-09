@@ -341,6 +341,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/06/Golang的优势/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuerenyu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/06/Golang的优势/" class="post-title-link" itemprop="url">Golang的优势</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-06 21:14:00" itemprop="dateCreated datePublished" datetime="2019-08-06T21:14:00+08:00">2019-08-06</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-09 21:16:29" itemprop="dateModified" datetime="2019-08-09T21:16:29+08:00">2019-08-09</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">826</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。</p>
+<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h1><p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.  – golang.org</p>
+<h2 id="速度快"><a href="#速度快" class="headerlink" title="速度快"></a>速度快</h2><p>Golang在执行效率和开发效率之间做到了协调，性能强劲，开发效率又不弱于python等动态语言。</p>
+<h3 id="执行速度快"><a href="#执行速度快" class="headerlink" title="执行速度快"></a>执行速度快</h3><p>Golang的执行效率虽然不及C、C++，但强于Java、C#，远远强于python这类动态语言。</p>
+<h3 id="开发速度快"><a href="#开发速度快" class="headerlink" title="开发速度快"></a>开发速度快</h3><p>Golang 拥有更智能的编译器，只关注被直接引用的库，不像Java、C和C++那样，要遍历依赖链中所有依赖的库，又不像动态语言那样缺少编译过程，类型错误无法捕捉。Golang编译极快，几乎感受不到编译过程。</p>
+<h2 id="并发友好"><a href="#并发友好" class="headerlink" title="并发友好"></a>并发友好</h2><p>现代计算机都拥有多个核心，但是大部分编程语言都没有有效的工具让程序可以轻易利用这些资源，需要编写大量同步代码来利用多核，很容易出错。Golang一个很重要的特性便是在系统层面支持并发，简化了并发程序的编写。</p>
+<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine很像线程，但是它占用的内存远少于线程，使用它需要的代码也很少，一台普通的PC就能支持百万级别的goroutine调用。</p>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>channel是一种数据结构，可以让goroutine之间进行安全的数据通信。channel可以帮助用户避免其他语言里常见的共享内存访问的问题。</p>
+<h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Golang仅有25个关键字，但是表达能力极强，几乎涵盖大多数编程特性：继承、多态、重载等。Golang的类型也非常简单，不仅支持常见的int、string，还可以像C一样自定义结构体。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Go语言实战》</li>
+<li><a href="https://www.zhihu.com/question/21409296" target="_blank" rel="noopener">为什么要使用 Go 语言？Go 语言的优势在哪里？</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -386,7 +589,7 @@
                 
               
 
-              <time title="Created: 2019-08-04 19:25:04 / Modified: 20:48:48" itemprop="dateCreated datePublished" datetime="2019-08-04T19:25:04+08:00">2019-08-04</time>
+              <time title="Created: 2019-08-04 19:25:04 / Modified: 20:54:45" itemprop="dateCreated datePublished" datetime="2019-08-04T19:25:04+08:00">2019-08-04</time>
             </span>
           
 
@@ -1149,7 +1352,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1172,7 +1375,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -1199,7 +1404,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1253,7 +1464,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">3k</span>
+    <span title="Symbols count total">4k</span>
   
 
   
@@ -1262,7 +1473,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3 mins.</span>
+    <span title="Reading time total">4 mins.</span>
   
 </div>
 
@@ -1473,7 +1684,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("Golang的优势");titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
