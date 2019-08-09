@@ -98,7 +98,7 @@
 <meta name="keywords" content="技术,积累,分享">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/categories/Linux/index.html">
+<meta property="og:url" content="https://yuerenyu.github.io/tags/goroutine/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
 <meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/categories/Linux/">
+  <link rel="canonical" href="https://yuerenyu.github.io/tags/goroutine/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>Category: Linux | yuerenyu's Blog</title>
+  <title>Tag: goroutine | yuerenyu's Blog</title>
   
 
 
@@ -247,7 +247,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -263,7 +263,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -346,11 +346,11 @@
   
   
   
-  <div class="post-block category">
+  <div class="post-block tag">
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Linux<small>Category</small>
+        <h1>goroutine<small>Tag</small>
         </h1>
       </div>
 
@@ -362,17 +362,17 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/2019/08/04/Linux-cp与mv的区别/" itemprop="url">
+          <a class="post-title-link" href="/2019/08/09/Golang多个goroutine顺序打印自然数/" itemprop="url">
             
-              <span itemprop="name">Linux cp与mv的区别</span>
+              <span itemprop="name">Golang多个goroutine顺序打印自然数</span>
             
           </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-04T19:25:04+08:00" content="2019-08-04">
-          08-04
+        <time class="post-time" itemprop="dateCreated" datetime="2019-08-09T21:53:59+08:00" content="2019-08-09">
+          08-09
         </time>
       </div>
 
@@ -751,8 +751,8 @@
       //https://hexo.io/docs/variables.html
       var isPost = ''.length > 0
       var isArchive = '' === 'true'
-      var isCategory = 'Linux'.length > 0
-      var isTag = ''.length > 0
+      var isCategory = ''.length > 0
+      var isTag = 'goroutine'.length > 0
 
       if (isPost) { //is article page
         var title = ''
@@ -763,7 +763,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux cp与mv的区别");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("Golang多个goroutine顺序打印自然数");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

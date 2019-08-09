@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="判断单链表是不是回文，这个问题肯定是要遍历链表的，时间复杂度是O(n)，主要看空间复杂度。 思路一：空间复杂度O(n) 将原链表逆序，保存为一个新的链表，然后遍历新旧链表，逐个元素比较。  遍历链表，将节点Val保存到数组中，然后遍历数组，逐个元素比较。   以上两种思路时间复杂度、空间复杂度都是O(n)，空间复杂度还有优化的空间。 思路二：空间复杂度O(1)可以将链表一分为二，其中一部分逆序，然">
-<meta name="keywords" content="算法">
+  <meta name="description" content="问题背景并发一直是面试中老生常谈的问题，golang实现并发很容易，但是如何保持顺序读取呢？比如这个题目： 用3个goroutine循序打印前n个自然数。 分析并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &amp;lt;= i &amp;lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。 实现Golang代码如下： 12345678910111213141516171">
+<meta name="keywords" content="Go,Golang,goroutine">
 <meta property="og:type" content="article">
-<meta property="og:title" content="234. Palindrome Linked List">
-<meta property="og:url" content="https://yuerenyu.github.io/2019/07/22/234-Palindrome-Linked-List/index.html">
+<meta property="og:title" content="Golang多个goroutine顺序打印自然数">
+<meta property="og:url" content="https://yuerenyu.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
-<meta property="og:description" content="判断单链表是不是回文，这个问题肯定是要遍历链表的，时间复杂度是O(n)，主要看空间复杂度。 思路一：空间复杂度O(n) 将原链表逆序，保存为一个新的链表，然后遍历新旧链表，逐个元素比较。  遍历链表，将节点Val保存到数组中，然后遍历数组，逐个元素比较。   以上两种思路时间复杂度、空间复杂度都是O(n)，空间复杂度还有优化的空间。 思路二：空间复杂度O(1)可以将链表一分为二，其中一部分逆序，然">
+<meta property="og:description" content="问题背景并发一直是面试中老生常谈的问题，golang实现并发很容易，但是如何保持顺序读取呢？比如这个题目： 用3个goroutine循序打印前n个自然数。 分析并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &amp;lt;= i &amp;lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。 实现Golang代码如下： 12345678910111213141516171">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-22T11:10:00.989Z">
+<meta property="og:updated_time" content="2019-08-09T14:31:31.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="234. Palindrome Linked List">
-<meta name="twitter:description" content="判断单链表是不是回文，这个问题肯定是要遍历链表的，时间复杂度是O(n)，主要看空间复杂度。 思路一：空间复杂度O(n) 将原链表逆序，保存为一个新的链表，然后遍历新旧链表，逐个元素比较。  遍历链表，将节点Val保存到数组中，然后遍历数组，逐个元素比较。   以上两种思路时间复杂度、空间复杂度都是O(n)，空间复杂度还有优化的空间。 思路二：空间复杂度O(1)可以将链表一分为二，其中一部分逆序，然">
+<meta name="twitter:title" content="Golang多个goroutine顺序打印自然数">
+<meta name="twitter:description" content="问题背景并发一直是面试中老生常谈的问题，golang实现并发很容易，但是如何保持顺序读取呢？比如这个题目： 用3个goroutine循序打印前n个自然数。 分析并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &amp;lt;= i &amp;lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。 实现Golang代码如下： 12345678910111213141516171">
 
 
 
@@ -113,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/2019/07/22/234-Palindrome-Linked-List/">
+  <link rel="canonical" href="https://yuerenyu.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>234. Palindrome Linked List | yuerenyu's Blog</title>
+  <title>Golang多个goroutine顺序打印自然数 | yuerenyu's Blog</title>
   
 
 
@@ -341,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/07/22/234-Palindrome-Linked-List/">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yueren.yu">
@@ -358,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">234. Palindrome Linked List
+          <h1 class="post-title" itemprop="name headline">Golang多个goroutine顺序打印自然数
 
               
             
@@ -384,7 +384,7 @@
                 
               
 
-              <time title="Created: 2019-07-22 17:35:10 / Modified: 19:10:00" itemprop="dateCreated datePublished" datetime="2019-07-22T17:35:10+08:00">2019-07-22</time>
+              <time title="Created: 2019-08-09 21:53:59 / Modified: 22:31:31" itemprop="dateCreated datePublished" datetime="2019-08-09T21:53:59+08:00">2019-08-09</time>
             </span>
           
 
@@ -403,7 +403,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
 
                 
                 
@@ -430,7 +430,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">934</span>
+              <span title="Symbols count in article">697</span>
             </span>
           
 
@@ -461,17 +461,13 @@
       
 
       
-        <p>判断单链表是不是回文，这个问题肯定是要遍历链表的，时间复杂度是O(n)，主要看空间复杂度。</p>
-<h1 id="思路一：空间复杂度O-n"><a href="#思路一：空间复杂度O-n" class="headerlink" title="思路一：空间复杂度O(n)"></a>思路一：空间复杂度O(n)</h1><ol>
-<li><p>将原链表逆序，保存为一个新的链表，然后遍历新旧链表，逐个元素比较。</p>
-</li>
-<li><p>遍历链表，将节点Val保存到数组中，然后遍历数组，逐个元素比较。</p>
-</li>
-</ol>
-<p>以上两种思路时间复杂度、空间复杂度都是O(n)，空间复杂度还有优化的空间。</p>
-<h1 id="思路二：空间复杂度O-1"><a href="#思路二：空间复杂度O-1" class="headerlink" title="思路二：空间复杂度O(1)"></a>思路二：空间复杂度O(1)</h1><p>可以将链表一分为二，其中一部分逆序，然后将这两部分逐个节点比较，空间复杂度为O(1)，比较结束后将原链表复原。golang实现如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isPalindrome</span><span class="params">(head *ListNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == head || <span class="literal">nil</span> == head.Next &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> length <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> p, q, r, head1, head2 *ListNode</span><br><span class="line">	p = head</span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != p &#123;</span><br><span class="line">		length ++</span><br><span class="line">		p = p.Next</span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">	<span class="comment">//前一半元素逆序，头节点为head1</span></span><br><span class="line">	p = head</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; length / <span class="number">2</span>; i ++ &#123;</span><br><span class="line">		r = p.Next</span><br><span class="line">		p.Next = head1</span><br><span class="line">		head1 = p</span><br><span class="line">		p = r</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//长度为奇偶的处理</span></span><br><span class="line">	<span class="keyword">if</span> length &amp; <span class="number">1</span> == <span class="number">0</span> &#123;</span><br><span class="line">		head2 = p</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		head2 = p.Next</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	p = head1</span><br><span class="line">	q = head2</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//比较是否是回文</span></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != p &#123;</span><br><span class="line">		<span class="keyword">if</span> p.Val != q.Val &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		p = p.Next</span><br><span class="line">		q = q.Next</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//还原原链表</span></span><br><span class="line">	p = head1</span><br><span class="line">	<span class="keyword">for</span>  <span class="literal">nil</span> != p &#123;</span><br><span class="line">		r = p.Next</span><br><span class="line">		p.Next = head2</span><br><span class="line">		head2 = p</span><br><span class="line">		p = r</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>并发一直是面试中老生常谈的问题，golang实现并发很容易，但是如何保持顺序读取呢？比如这个题目：</p>
+<p>用3个goroutine循序打印前n个自然数。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &lt;= i &lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>Golang代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"sync"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line">	<span class="keyword">var</span> lock sync.Mutex</span><br><span class="line">	num := <span class="number">3</span> <span class="comment">//定义goroutien数量</span></span><br><span class="line">	n := <span class="number">100</span> <span class="comment">//顺序打印前n个自然数</span></span><br><span class="line">	cur := <span class="number">1</span></span><br><span class="line">	<span class="built_in">print</span> := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="keyword">for</span> &#123;</span><br><span class="line">			lock.Lock()</span><br><span class="line">			<span class="keyword">if</span> cur &gt; n &#123;</span><br><span class="line">				lock.Unlock()</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Printf(<span class="string">"%d "</span>, cur)</span><br><span class="line">			<span class="comment">//此处可以加入换行条件</span></span><br><span class="line">			cur++</span><br><span class="line">			lock.Unlock()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; num; i++ &#123;</span><br><span class="line">		wg.Add(<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">go</span> <span class="built_in">print</span>()</span><br><span class="line">	&#125;</span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Golang中有channel优雅的解决goroutine的数据同步问题，channel本身可以保证有序，如何保证goroutine顺序读取呢，这个问题值得思考。</p>
 
       
     </div>
@@ -498,7 +494,11 @@
         
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/Go/" rel="tag"># Go</a>
+          
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
+          
+            <a href="/tags/goroutine/" rel="tag"># goroutine</a>
           
         </div>
       
@@ -511,15 +511,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/08/06/Golang的优势/" rel="next" title="Golang的优势">
+                <i class="fa fa-chevron-left"></i> Golang的优势
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/290-Word-Pattern/" rel="prev" title="290. Word Pattern">
-                290. Word Pattern <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -686,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#思路一：空间复杂度O-n"><span class="nav-number">1.</span> <span class="nav-text">思路一：空间复杂度O(n)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路二：空间复杂度O-1"><span class="nav-number">2.</span> <span class="nav-text">思路二：空间复杂度O(1)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">1.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">1.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">1.3.</span> <span class="nav-text">后记</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -931,13 +931,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/docs/variables.html
-      var isPost = '234. Palindrome Linked List'.length > 0
+      var isPost = 'Golang多个goroutine顺序打印自然数'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = '234. Palindrome Linked List'
+        var title = 'Golang多个goroutine顺序打印自然数'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
