@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
 <meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/local_queue.png">
 <meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/merged.png">
-<meta property="og:updated_time" content="2019-08-10T09:24:39.251Z">
+<meta property="og:updated_time" content="2019-08-10T10:52:42.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang M-P-G调度模型">
 <meta name="twitter:description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
@@ -388,7 +388,7 @@
                 
               
 
-              <time title="Created: 2019-08-10 15:31:44 / Modified: 17:24:39" itemprop="dateCreated datePublished" datetime="2019-08-10T15:31:44+08:00">2019-08-10</time>
+              <time title="Created: 2019-08-10 15:31:44 / Modified: 18:52:42" itemprop="dateCreated datePublished" datetime="2019-08-10T15:31:44+08:00">2019-08-10</time>
             </span>
           
 
@@ -434,7 +434,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">675</span>
+              <span title="Symbols count in article">688</span>
             </span>
           
 
@@ -472,6 +472,9 @@
 <p>程序创建的goroutine会被调度器放到全局运行队列中，如下图：<img src="/2019/08/10/Golang-M-P-G调度模型/global_queue.png" alt="全局运行队列"></p>
 <h2 id="本地运行队列"><a href="#本地运行队列" class="headerlink" title="本地运行队列"></a>本地运行队列</h2><p>之后调度器会将Global queue中的goroutine分配给一个逻辑处理器，并放到这个逻辑处理器的本地运行队列中。本地运行队列中的goroutine会一直等到自己被分配的逻辑处理器执行，如下图：<img src="/2019/08/10/Golang-M-P-G调度模型/local_queue.png" alt="逻辑处理器P0的本地运行队列"></p>
 <h2 id="goroutine阻塞"><a href="#goroutine阻塞" class="headerlink" title="goroutine阻塞"></a>goroutine阻塞</h2><p>有时候，正在运行的goroutine需要执行一个阻塞的系统调用，比如打开文件。<img src="/2019/08/10/Golang-M-P-G调度模型/merged.png" alt>当阻塞发生时，线程和这个阻塞的goroutine会从逻辑处理器上分离，M2会继续阻塞，等待系统调用的返回，逻辑处理器P0失去了原来运行的线程。此时调度器会创建一个新的线程M3绑定到该逻辑处理器P0上。之后调度器会从P0的本地运行队列选择另一个goroutine（图示为G5）来运行。一旦M2执行完成并返回，对应的G4会放回到本地运行队列中，M2会得到保存，方便之后调用。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Go语言实战》</li>
+</ul>
 
       
     </div>
@@ -694,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程"><span class="nav-number">2.</span> <span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MPG模型"><span class="nav-number">3.</span> <span class="nav-text">MPG模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地运行队列"><span class="nav-number">3.1.</span> <span class="nav-text">本地运行队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goroutine阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">goroutine阻塞</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程"><span class="nav-number">2.</span> <span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MPG模型"><span class="nav-number">3.</span> <span class="nav-text">MPG模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地运行队列"><span class="nav-number">3.1.</span> <span class="nav-text">本地运行队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goroutine阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">goroutine阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.3.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
