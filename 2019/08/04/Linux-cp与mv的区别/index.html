@@ -94,22 +94,22 @@
 
 
 
-  <meta name="description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
+  <meta name="description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin 因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bin">
 <meta name="keywords" content="linux,cp,mv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux cp与mv的区别">
 <meta property="og:url" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
-<meta property="og:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
+<meta property="og:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin 因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bin">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/2.mv%E7%BB%93%E6%9E%9C.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/3.cp%E7%BB%93%E6%9E%9C.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.文件显示.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/2.mv结果.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/3.cp结果.png">
 <meta property="og:updated_time" content="2019-08-04T12:54:45.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux cp与mv的区别">
-<meta name="twitter:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin  因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bi">
-<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png">
+<meta name="twitter:description" content="现在我们当前目录下有个可执行文件login，我们看一下它的信息：  mv现在我们用mv命令将这个文件移动到/usr/bin中 1sudo mv login /usr/bin 因为当前不是root用户所以前边加了sudo，看一下执行的结果：  可以看到用户、组、创建时间与mv前保持一致。 cp再来看一下cp，用cp命令将这个文件复制到/usr/bin中 1sudo cp login /usr/bin">
+<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/1.文件显示.png">
 
 
 
@@ -434,7 +434,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">273</span>
+              <span title="Symbols count in article">271</span>
             </span>
           
 
@@ -466,17 +466,15 @@
 
       
         <p>现在我们当前目录下有个可执行文件login，我们看一下它的信息：</p>
-<p><img src="/2019/08/04/Linux-cp与mv的区别/1.%E6%96%87%E4%BB%B6%E6%98%BE%E7%A4%BA.png" alt="1.文件显示"></p>
+<p><img src="/2019/08/04/Linux-cp与mv的区别/1.文件显示.png" alt="1.文件显示"></p>
 <h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>现在我们用mv命令将这个文件移动到/usr/bin中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv login /usr/bin</span><br></pre></td></tr></table></figure>
-
 <p>因为当前不是root用户所以前边加了sudo，看一下执行的结果：</p>
-<p><img src="/2019/08/04/Linux-cp与mv的区别/2.mv%E7%BB%93%E6%9E%9C.png" alt="2. mv 结果"></p>
+<p><img src="/2019/08/04/Linux-cp与mv的区别/2.mv结果.png" alt="2. mv 结果"></p>
 <p>可以看到用户、组、创建时间与mv前保持一致。</p>
 <h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>再来看一下cp，用cp命令将这个文件复制到/usr/bin中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp login /usr/bin</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/08/04/Linux-cp与mv的区别/3.cp%E7%BB%93%E6%9E%9C.png" alt="3. cp结果"></p>
+<p><img src="/2019/08/04/Linux-cp与mv的区别/3.cp结果.png" alt="3. cp结果"></p>
 <p>很明显，用户、组、创建时间发生了变化。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>mv只是移动了文件，文件内容文件属性均与之前保持一致；cp是复制了文件内容，重新创建了文件属性。</p>
 
@@ -603,7 +601,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -665,7 +663,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -736,7 +736,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">6k</span>
+    <span title="Symbols count total">8k</span>
   
 
   
@@ -745,7 +745,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">7 mins.</span>
   
 </div>
 
@@ -982,6 +982,13 @@
 
 
   
+  
+
+  
+  
+
+  
+
 
   
 

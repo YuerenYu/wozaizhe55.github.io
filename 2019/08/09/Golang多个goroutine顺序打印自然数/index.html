@@ -440,7 +440,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">697</span>
+              <span title="Symbols count in article">696</span>
             </span>
           
 
@@ -476,7 +476,6 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &lt;= i &lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>Golang代码如下：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"sync"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line">	<span class="keyword">var</span> lock sync.Mutex</span><br><span class="line">	num := <span class="number">3</span> <span class="comment">//定义goroutien数量</span></span><br><span class="line">	n := <span class="number">100</span> <span class="comment">//顺序打印前n个自然数</span></span><br><span class="line">	cur := <span class="number">1</span></span><br><span class="line">	<span class="built_in">print</span> := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="keyword">for</span> &#123;</span><br><span class="line">			lock.Lock()</span><br><span class="line">			<span class="keyword">if</span> cur &gt; n &#123;</span><br><span class="line">				lock.Unlock()</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Printf(<span class="string">"%d "</span>, cur)</span><br><span class="line">			<span class="comment">//此处可以加入换行条件</span></span><br><span class="line">			cur++</span><br><span class="line">			lock.Unlock()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; num; i++ &#123;</span><br><span class="line">		wg.Add(<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">go</span> <span class="built_in">print</span>()</span><br><span class="line">	&#125;</span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Golang中有channel优雅的解决goroutine的数据同步问题，channel本身可以保证有序，如何保证goroutine顺序读取呢，这个问题值得思考。</p>
 
       
@@ -602,7 +601,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -664,7 +663,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -735,7 +736,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">6k</span>
+    <span title="Symbols count total">8k</span>
   
 
   
@@ -744,7 +745,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">7 mins.</span>
   
 </div>
 
@@ -981,6 +982,13 @@
 
 
   
+  
+
+  
+  
+
+  
+
 
   
 

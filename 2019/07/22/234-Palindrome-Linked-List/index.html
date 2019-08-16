@@ -440,7 +440,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">934</span>
+              <span title="Symbols count in article">933</span>
             </span>
           
 
@@ -481,7 +481,6 @@
 <p>以上两种思路时间复杂度、空间复杂度都是O(n)，空间复杂度还有优化的空间。</p>
 <h1 id="思路二：空间复杂度O-1"><a href="#思路二：空间复杂度O-1" class="headerlink" title="思路二：空间复杂度O(1)"></a>思路二：空间复杂度O(1)</h1><p>可以将链表一分为二，其中一部分逆序，然后将这两部分逐个节点比较，空间复杂度为O(1)，比较结束后将原链表复原。golang实现如下：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isPalindrome</span><span class="params">(head *ListNode)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="literal">nil</span> == head || <span class="literal">nil</span> == head.Next &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> length <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> p, q, r, head1, head2 *ListNode</span><br><span class="line">	p = head</span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != p &#123;</span><br><span class="line">		length ++</span><br><span class="line">		p = p.Next</span><br><span class="line">	&#125;</span><br><span class="line">  </span><br><span class="line">	<span class="comment">//前一半元素逆序，头节点为head1</span></span><br><span class="line">	p = head</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; length / <span class="number">2</span>; i ++ &#123;</span><br><span class="line">		r = p.Next</span><br><span class="line">		p.Next = head1</span><br><span class="line">		head1 = p</span><br><span class="line">		p = r</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//长度为奇偶的处理</span></span><br><span class="line">	<span class="keyword">if</span> length &amp; <span class="number">1</span> == <span class="number">0</span> &#123;</span><br><span class="line">		head2 = p</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		head2 = p.Next</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	p = head1</span><br><span class="line">	q = head2</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//比较是否是回文</span></span><br><span class="line">	<span class="keyword">for</span> <span class="literal">nil</span> != p &#123;</span><br><span class="line">		<span class="keyword">if</span> p.Val != q.Val &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		p = p.Next</span><br><span class="line">		q = q.Next</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//还原原链表</span></span><br><span class="line">	p = head1</span><br><span class="line">	<span class="keyword">for</span>  <span class="literal">nil</span> != p &#123;</span><br><span class="line">		r = p.Next</span><br><span class="line">		p.Next = head2</span><br><span class="line">		head2 = p</span><br><span class="line">		p = r</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -598,7 +597,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -660,7 +659,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -731,7 +732,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">6k</span>
+    <span title="Symbols count total">8k</span>
   
 
   
@@ -740,7 +741,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">7 mins.</span>
   
 </div>
 
@@ -977,6 +978,13 @@
 
 
   
+  
+
+  
+  
+
+  
+
 
   
 

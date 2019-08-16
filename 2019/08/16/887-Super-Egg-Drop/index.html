@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="背景动态规划一直是算法题的难点，最近一直在找工作，编程题始终绕不开这块，一点一点啃吧。 扔鸡蛋扔鸡蛋问题是动态规划里的经典问题，比如：有两个鸡蛋，100层楼，鸡蛋会在n层碎掉（1 &amp;lt;= n &amp;lt;= 100）, 小于n层鸡蛋完好，求最少需要扔多少次鸡蛋可以求出n。还可以扩展一下，K个鸡蛋 H层楼，求最小扔鸡蛋次数N，得出鸡蛋会碎的楼层n。例如：leetcode: 887. Super Eg">
+<meta name="keywords" content="算法,扔鸡蛋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="887. Super Egg Drop">
+<meta property="og:url" content="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/index.html">
+<meta property="og:site_name" content="yuerenyu&#39;s Blog">
+<meta property="og:description" content="背景动态规划一直是算法题的难点，最近一直在找工作，编程题始终绕不开这块，一点一点啃吧。 扔鸡蛋扔鸡蛋问题是动态规划里的经典问题，比如：有两个鸡蛋，100层楼，鸡蛋会在n层碎掉（1 &amp;lt;= n &amp;lt;= 100）, 小于n层鸡蛋完好，求最少需要扔多少次鸡蛋可以求出n。还可以扩展一下，K个鸡蛋 H层楼，求最小扔鸡蛋次数N，得出鸡蛋会碎的楼层n。例如：leetcode: 887. Super Eg">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/1.first.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/2.second.png">
+<meta property="og:image" content="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/3.%20thrid.png">
+<meta property="og:updated_time" content="2019-08-16T15:34:16.839Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="887. Super Egg Drop">
+<meta name="twitter:description" content="背景动态规划一直是算法题的难点，最近一直在找工作，编程题始终绕不开这块，一点一点啃吧。 扔鸡蛋扔鸡蛋问题是动态规划里的经典问题，比如：有两个鸡蛋，100层楼，鸡蛋会在n层碎掉（1 &amp;lt;= n &amp;lt;= 100）, 小于n层鸡蛋完好，求最少需要扔多少次鸡蛋可以求出n。还可以扩展一下，K个鸡蛋 H层楼，求最小扔鸡蛋次数N，得出鸡蛋会碎的楼层n。例如：leetcode: 887. Super Eg">
+<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/1.first.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>887. Super Egg Drop | yuerenyu's Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144563687-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144563687-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144563687-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144563687-1');
+</script>
+  
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yuerenyu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuerenyu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">887. Super Egg Drop
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 21:06:07 / Modified: 23:34:16" itemprop="dateCreated datePublished" datetime="2019-08-16T21:06:07+08:00">2019-08-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.2k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">2 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>动态规划一直是算法题的难点，最近一直在找工作，编程题始终绕不开这块，一点一点啃吧。</p>
+<h1 id="扔鸡蛋"><a href="#扔鸡蛋" class="headerlink" title="扔鸡蛋"></a>扔鸡蛋</h1><p>扔鸡蛋问题是动态规划里的经典问题，比如：有两个鸡蛋，100层楼，鸡蛋会在<script type="math/tex">n</script>层碎掉（1 &lt;= <script type="math/tex">n</script> &lt;= 100）, 小于<script type="math/tex">n</script>层鸡蛋完好，求最少需要扔多少次鸡蛋可以求出<script type="math/tex">n</script>。还可以扩展一下，<script type="math/tex">K</script>个鸡蛋 <script type="math/tex">H</script>层楼，求最小扔鸡蛋次数<script type="math/tex">N</script>，得出鸡蛋会碎的楼层<script type="math/tex">n</script>。例如：<a href="https://leetcode.com/problems/super-egg-drop/" target="_blank" rel="noopener">leetcode: 887. Super Egg Drop</a></p>
+<h2 id="解法1"><a href="#解法1" class="headerlink" title="解法1."></a>解法1.</h2><p>我们用 <script type="math/tex">F(h,k)</script> 表示<script type="math/tex">h</script>层楼，<script type="math/tex">k</script>个鸡蛋找出鸡蛋破碎楼层<script type="math/tex">n</script>的最小值。显然当在<script type="math/tex">h</script> 层扔鸡蛋时，有两种结果，碎和不碎，当碎时就转化为<script type="math/tex">F(h-1,k-1)</script> ,当不碎时转化为 <script type="math/tex">F(H-h,k)</script> 即 剩下<script type="math/tex">H-h</script> 层楼，<script type="math/tex">k</script> 个鸡蛋求解n的最小值。因为在<script type="math/tex">h</script>层扔了1次，所以取二者的最大值加<script type="math/tex">1</script> 为什么是取最大值呢？这里要求的最大<strong>尝试</strong>次数，最小的解<script type="math/tex">N</script>. 即：</p>
+<script type="math/tex; mode=display">F(h,k)=min(max(F(h-1,k-1),F(H-h,k))+1)</script><p>按照动态规划的自底向上的求解思路，用一个$(K+1)\times (H+1)$的辅助矩阵<script type="math/tex">dp</script>来表示整个过程，初始状态，<script type="math/tex">1</script>个鸡蛋时候第<script type="math/tex">h</script>层值为<script type="math/tex">h</script>，<script type="math/tex">1</script>层楼时，不管多少个鸡蛋只需要测<script type="math/tex">1</script>次。</p>
+<p><img src="/2019/08/16/887-Super-Egg-Drop/1.first.png" alt="初始状态"></p>
+<p>依次计算<script type="math/tex">F(2,2),F(2,3),F(2,4)...</script>即可求的两个鸡蛋求得最小解<script type="math/tex">N</script>的值，<script type="math/tex">3</script>个鸡蛋也是类似情况。<script type="math/tex">3</script>个鸡蛋<script type="math/tex">4</script>层楼的状态如下所示:</p>
+<p><img src="/2019/08/16/887-Super-Egg-Drop/2.second.png" alt="3个鸡蛋4层楼状态"></p>
+<p><script type="math/tex">dp[K][H]</script>的值就是<script type="math/tex">K</script>个鸡蛋，<script type="math/tex">H</script>层楼 求得鸡蛋破碎楼层的最小尝试次数<script type="math/tex">N</script>.</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>golang实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">superEggDrop</span><span class="params">(K <span class="keyword">int</span>, H <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, H+<span class="number">1</span>)</span><br><span class="line">	pre := <span class="built_in">make</span>([]<span class="keyword">int</span>, H+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= H; i++ &#123;</span><br><span class="line">		dp[i] = i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= K; i++ &#123;</span><br><span class="line">		<span class="built_in">copy</span>(pre, dp)</span><br><span class="line">		<span class="keyword">for</span> m := <span class="number">1</span>; m &lt;= H; m ++ &#123;</span><br><span class="line">			dp[m] = m</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">2</span>; j &lt;= H; j++ &#123;</span><br><span class="line">			min := <span class="keyword">int</span>(^<span class="keyword">uint</span>(<span class="number">0</span>) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">for</span> t := <span class="number">1</span>; t &lt;= j; t++ &#123;</span><br><span class="line">				max := max(dp[j-t], pre[t<span class="number">-1</span>]) + <span class="number">1</span></span><br><span class="line">				<span class="keyword">if</span> max &lt; min &#123;</span><br><span class="line">					min = max</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			dp[j] = min</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[H]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码已将空间复杂度<script type="math/tex">O(K \times H)</script>优化为 <script type="math/tex">O(H)</script>。</p>
+<h2 id="解法2"><a href="#解法2" class="headerlink" title="解法2."></a>解法2.</h2><p>解法1的时间复杂度为<script type="math/tex">O(K \times H \times H)</script> ，优化过的空间复杂度为<script type="math/tex">O(H)</script> . 这样的复杂度在leetcode上通过不了，超时了，有没有更优的解法呢？经过一番探索，发现还是有的，先看一下实现过程：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">superEggDrop</span><span class="params">(K <span class="keyword">int</span>, H <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, K+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span>; dp[K] &lt; H; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := K; j &gt; <span class="number">0</span>; j-- &#123;</span><br><span class="line">			dp[j] += dp[j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是很惊讶，如此的简洁，就是实现了如此强大的功能，时间复杂度为<script type="math/tex">O(\alpha \times K)</script>, <script type="math/tex">\alpha</script> 是一个常数(其实等于最后的结果<script type="math/tex">i</script>)，但是不确定，可以肯定的是这个常数不大，远小于<script type="math/tex">H</script>(<script type="math/tex">2</script>个鸡蛋，<script type="math/tex">100</script>层楼的值为<script type="math/tex">\alpha</script> 为14)。空间复杂度为<script type="math/tex">O(K)</script>.</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这里<script type="math/tex">i</script>表示<script type="math/tex">K</script>个鸡蛋尝试的次数，<script type="math/tex">dp</script>中保存在当前尝试次数<script type="math/tex">i</script>的情况下，每个鸡蛋可以到达的最大楼层。最核心的步骤是：<script type="math/tex">dp[j] += dp[j-1] + 1</script> 这一步表示在第<script type="math/tex">i</script>尝试下，第<script type="math/tex">j</script>个鸡蛋可以稳妥到达的最大楼层，为什么这么写呢？咱们以两个鸡蛋为例，列出<script type="math/tex">dp</script>的转移过程：<img src="/2019/08/16/887-Super-Egg-Drop/3. thrid.png" alt="尝试4次2个鸡蛋的转移过程"></p>
+<p>第<script type="math/tex">1</script>次尝试，无论多少个鸡蛋都只能稳妥到达<script type="math/tex">1</script>层；</p>
+<p>…</p>
+<p>第<script type="math/tex">i</script>次尝试，知道两个鸡蛋尝试<script type="math/tex">i-1</script>次最高到<script type="math/tex">max</script>层，两次的话， 在<script type="math/tex">i-1</script>次尝试<script type="math/tex">max+1</script>扔下：</p>
+<blockquote>
+<p>a. 鸡蛋碎了：</p>
+<p>​    剩下<script type="math/tex">i-1</script>次机会，<script type="math/tex">j-1</script>个鸡蛋，可以检测<script type="math/tex">dp[j-1]</script> 层楼</p>
+<p>b. 鸡蛋没碎：</p>
+<p>​    剩下<script type="math/tex">i-1</script>次机会，<script type="math/tex">j</script>个鸡蛋，可以检测<script type="math/tex">dp[j]</script>层楼</p>
+<p>所以楼层在<script type="math/tex">[1, dp[j-1] + dp[j]+1]</script> 都可以覆盖到</p>
+</blockquote>
+<p>…</p>
+<p>当<script type="math/tex">dp[K] >= H</script> 时循环退出，此时的尝试次数<script type="math/tex">i</script>即为所求。</p>
+<h2 id="类似"><a href="#类似" class="headerlink" title="类似"></a>类似</h2><p>牛客上有一道类似题：<a href="https://www.nowcoder.com/questionTerminal/19a79b34213649ab97eb721675750d1a" target="_blank" rel="noopener">飞机最低可俯冲高度</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><p><a href="https://leetcode.com/problems/super-egg-drop/discuss/338940/Go-DP-solution" target="_blank" rel="noopener">leetcode:[Go] DP solution</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/41257286" target="_blank" rel="noopener">漫画：动态规划解决扔鸡蛋问题</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000016364846" target="_blank" rel="noopener">一篇文章带你搞定经典面试题之扔鸡蛋问题</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/扔鸡蛋/" rel="tag"># 扔鸡蛋</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/Golang-M-P-G调度模型/" rel="next" title="Golang M-P-G调度模型">
+                <i class="fa fa-chevron-left"></i> Golang M-P-G调度模型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yueren.yu</p>
+              <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扔鸡蛋"><span class="nav-number">2.</span> <span class="nav-text">扔鸡蛋</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解法1"><span class="nav-number">2.1.</span> <span class="nav-text">解法1.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现"><span class="nav-number">2.1.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法2"><span class="nav-number">2.2.</span> <span class="nav-text">解法2.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.2.1.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类似"><span class="nav-number">2.3.</span> <span class="nav-text">类似</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yueren.yu</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">8k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">7 mins.</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBARlpl36Sfo9mNVgClOin2JW7KeM7KG2w',
+        projectId: 'my-blog-247909'
+      })
+
+      function getCount(doc, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+                $('<i>').addClass('fa fa-users')
+              )
+              ).append($('<span>').text('Views ' + count))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/docs/variables.html
+      var isPost = '887. Super Egg Drop'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      if (isPost) { //is article page
+        var title = '887. Super Egg Drop'
+        var doc = articles.doc(title)
+
+        getCount(doc, true).then(appendCountTo($('.post-meta')))
+      }
+      else if (!isArchive && !isCategory && !isTag) { //is index page
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          var metas = $('.post-meta')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
