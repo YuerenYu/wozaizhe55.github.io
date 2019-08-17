@@ -386,13 +386,23 @@
                 
               
 
-              <time title="Created: 2019-08-16 21:06:07 / Modified: 23:34:16" itemprop="dateCreated datePublished" datetime="2019-08-16T21:06:07+08:00">2019-08-16</time>
+              <time title="Created: 2019-08-16 21:06:07" itemprop="dateCreated datePublished" datetime="2019-08-16T21:06:07+08:00">2019-08-16</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-17 09:50:11" itemprop="dateModified" datetime="2019-08-17T09:50:11+08:00">2019-08-17</time>
+              </span>
             
           
 
@@ -480,9 +490,9 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">superEggDrop</span><span class="params">(K <span class="keyword">int</span>, H <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, K+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span>; dp[K] &lt; H; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := K; j &gt; <span class="number">0</span>; j-- &#123;</span><br><span class="line">			dp[j] += dp[j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>是不是很惊讶，如此的简洁，就是实现了如此强大的功能，时间复杂度为<script type="math/tex">O(\alpha \times K)</script>, <script type="math/tex">\alpha</script> 是一个常数(其实等于最后的结果<script type="math/tex">i</script>)，但是不确定，可以肯定的是这个常数不大，远小于<script type="math/tex">H</script>(<script type="math/tex">2</script>个鸡蛋，<script type="math/tex">100</script>层楼的值为<script type="math/tex">\alpha</script> 为14)。空间复杂度为<script type="math/tex">O(K)</script>.</p>
 <h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这里<script type="math/tex">i</script>表示<script type="math/tex">K</script>个鸡蛋尝试的次数，<script type="math/tex">dp</script>中保存在当前尝试次数<script type="math/tex">i</script>的情况下，每个鸡蛋可以到达的最大楼层。最核心的步骤是：<script type="math/tex">dp[j] += dp[j-1] + 1</script> 这一步表示在第<script type="math/tex">i</script>尝试下，第<script type="math/tex">j</script>个鸡蛋可以稳妥到达的最大楼层，为什么这么写呢？咱们以两个鸡蛋为例，列出<script type="math/tex">dp</script>的转移过程：<img src="/2019/08/16/887-Super-Egg-Drop/3. thrid.png" alt="尝试4次2个鸡蛋的转移过程"></p>
-<p>第<script type="math/tex">1</script>次尝试，无论多少个鸡蛋都只能稳妥到达<script type="math/tex">1</script>层；</p>
+<p>尝试<script type="math/tex">1</script>次，无论多少个鸡蛋都只能稳妥到达<script type="math/tex">1</script>层；</p>
 <p>…</p>
-<p>第<script type="math/tex">i</script>次尝试，知道两个鸡蛋尝试<script type="math/tex">i-1</script>次最高到<script type="math/tex">max</script>层，两次的话， 在<script type="math/tex">i-1</script>次尝试<script type="math/tex">max+1</script>扔下：</p>
+<p>尝试<script type="math/tex">i</script>次，知道两个鸡蛋尝试<script type="math/tex">i-1</script>次最高到<script type="math/tex">max</script>层，尝试<script type="math/tex">i</script>次的话， 在<script type="math/tex">i-1</script>次尝试<script type="math/tex">max+1</script>扔下：</p>
 <blockquote>
 <p>a. 鸡蛋碎了：</p>
 <p>​    剩下<script type="math/tex">i-1</script>次机会，<script type="math/tex">j-1</script>个鸡蛋，可以检测<script type="math/tex">dp[j-1]</script> 层楼</p>
