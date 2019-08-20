@@ -94,22 +94,17 @@
 
 
 
-  <meta name="description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
-<meta name="keywords" content="Go,Golang,goroutine,mpg模型">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Golang M-P-G调度模型">
-<meta property="og:url" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/index.html">
+  <meta name="description" content="一个程序员的自我救赎">
+<meta name="keywords" content="技术,积累,分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yuerenyu&#39;s Blog">
+<meta property="og:url" content="https://yuerenyu.github.io/tags/LCS/index.html">
 <meta property="og:site_name" content="yuerenyu&#39;s Blog">
-<meta property="og:description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
+<meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/local_queue.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/merged.png">
-<meta property="og:updated_time" content="2019-08-10T10:58:31.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang M-P-G调度模型">
-<meta name="twitter:description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
-<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
+<meta name="twitter:title" content="yuerenyu&#39;s Blog">
+<meta name="twitter:description" content="一个程序员的自我救赎">
 
 
 
@@ -117,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/">
+  <link rel="canonical" href="https://yuerenyu.github.io/tags/LCS/">
 
 
 
@@ -127,7 +122,7 @@
   };
 </script>
 
-  <title>Golang M-P-G调度模型 | yuerenyu's Blog</title>
+  <title>Tag: LCS | yuerenyu's Blog</title>
   
 
 
@@ -198,7 +193,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,7 +263,7 @@
         
         
           
-          <li class="menu-item menu-item-tags">
+          <li class="menu-item menu-item-tags menu-item-active">
 
     
     
@@ -305,6 +300,25 @@
   
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
   
 
   
@@ -329,234 +343,57 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>LCS<small>Tag</small>
+        </h1>
+      </div>
 
-  
-  
-  
-
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
-      <meta itemprop="description" content="一个程序员的自我救赎">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+          <a class="post-title-link" href="/2019/08/19/最长公共子序列-最长公共子串-最长递增子序列/" itemprop="url">
+            
+              <span itemprop="name">最长公共子序列 最长公共子串 最长递增子序列</span>
+            
+          </a>
         
-          <h1 class="post-title" itemprop="name headline">Golang M-P-G调度模型
+      </h2>
 
-              
-            
-          </h1>
-        
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-08-19T20:38:35+08:00" content="2019-08-19">
+          08-19
+        </time>
+      </div>
 
-        <div class="post-meta">
+    </header>
+  </article>
 
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-10 15:31:44 / Modified: 18:58:31" itemprop="dateCreated datePublished" datetime="2019-08-10T15:31:44+08:00">2019-08-10</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">688</span>
-            </span>
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。</p>
-<h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。</p>
-<p>线程：一个线程是一个执行空间，这个空间会被操作系统调度来运行函数中所写的代码。每个进程至少包含一个线程，每个进程的初始线程被称作主线程。</p>
-<h1 id="MPG模型"><a href="#MPG模型" class="headerlink" title="MPG模型"></a>MPG模型</h1><p>MPG模型中M指的是系统线程，P指的是逻辑处理器，G指的是goroutine。</p>
-<p>程序创建的goroutine会被调度器放到全局运行队列中，如下图：<img src="/2019/08/10/Golang-M-P-G调度模型/global_queue.png" alt="全局运行队列"></p>
-<h2 id="本地运行队列"><a href="#本地运行队列" class="headerlink" title="本地运行队列"></a>本地运行队列</h2><p>之后调度器会将Global queue中的goroutine分配给一个逻辑处理器，并放到这个逻辑处理器的本地运行队列中。本地运行队列中的goroutine会一直等到自己被分配的逻辑处理器执行，如下图：<img src="/2019/08/10/Golang-M-P-G调度模型/local_queue.png" alt="逻辑处理器P0的本地运行队列"></p>
-<h2 id="goroutine阻塞"><a href="#goroutine阻塞" class="headerlink" title="goroutine阻塞"></a>goroutine阻塞</h2><p>有时候，正在运行的goroutine需要执行一个阻塞的系统调用，比如打开文件。<img src="/2019/08/10/Golang-M-P-G调度模型/merged.png" alt>当阻塞发生时，线程和这个阻塞的goroutine会从逻辑处理器上分离，M2会继续阻塞，等待系统调用的返回，逻辑处理器P0失去了原来运行的线程。此时调度器会创建一个新的线程M3绑定到该逻辑处理器P0上。之后调度器会从P0的本地运行队列选择另一个goroutine（图示为G5）来运行。一旦M2执行完成并返回，对应的G4会放回到本地运行队列中，M2会得到保存，方便之后调用。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>《Go语言实战》</li>
-</ul>
 
       
     </div>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Go/" rel="tag"># Go</a>
-          
-            <a href="/tags/Golang/" rel="tag"># Golang</a>
-          
-            <a href="/tags/goroutine/" rel="tag"># goroutine</a>
-          
-            <a href="/tags/mpg模型/" rel="tag"># mpg模型</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/08/09/Golang多个goroutine顺序打印自然数/" rel="next" title="Golang多个goroutine顺序打印自然数">
-                <i class="fa fa-chevron-left"></i> Golang多个goroutine顺序打印自然数
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/16/887-Super-Egg-Drop/" rel="prev" title="887. Super Egg Drop">
-                887. Super Egg Drop <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
   </div>
   
   
   
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
 
   
 
 
+
+          </div>
+          
 
         </div>
         
@@ -576,17 +413,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -702,23 +530,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和线程"><span class="nav-number">2.</span> <span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MPG模型"><span class="nav-number">3.</span> <span class="nav-text">MPG模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地运行队列"><span class="nav-number">3.1.</span> <span class="nav-text">本地运行队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goroutine阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">goroutine阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.3.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -863,10 +674,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   
 
@@ -882,8 +689,6 @@
 
   
 
-
-  
 
 
   
@@ -958,13 +763,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/docs/variables.html
-      var isPost = 'Golang M-P-G调度模型'.length > 0
+      var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
-      var isTag = ''.length > 0
+      var isTag = 'LCS'.length > 0
 
       if (isPost) { //is article page
-        var title = 'Golang M-P-G调度模型'
+        var title = ''
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
@@ -972,7 +777,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("最长公共子序列 最长公共子串 最长递增子序列");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

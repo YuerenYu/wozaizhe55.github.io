@@ -341,6 +341,270 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/19/最长公共子序列-最长公共子串-最长递增子序列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuerenyu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/19/最长公共子序列-最长公共子串-最长递增子序列/" class="post-title-link" itemprop="url">最长公共子序列 最长公共子串 最长递增子序列</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 20:38:35" itemprop="dateCreated datePublished" datetime="2019-08-19T20:38:35+08:00">2019-08-19</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-20 11:43:53" itemprop="dateModified" datetime="2019-08-20T11:43:53+08:00">2019-08-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">4k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">4 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>算法中最长公共子序列(LCS)， 最长公共子串(LCSub)，最长递增子序列(LIS)是动态规划的重要应用，比较难，却异常受到各大公司笔试的青睐，故在此总结一下。</p>
+<h1 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h1><p>最长公共子序列相当于求两个序列的交集，不需要公共序列不要求连续。这里咱们求最长公共子序列的长度，如果要输出其中一个值的话需要额外的保存状态信息，这个以后再说。比如：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A := <span class="string">"ABCDE"</span></span><br><span class="line">B := <span class="string">"AABDD"</span></span><br></pre></td></tr></table></figure>
+<p>则A、B的最长公共子序列为ABD，输出长度<script type="math/tex">3</script>。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>设：</p>
+<p>$X_i=(X_1,X_2,…,X_i)$表示序列$X$的前$i$个字符$(1 \leq i \leq m)$（前缀）</p>
+<p>$Y_j=(Y_1,Y_2,…,Y_j)$ 表示序列$Y$的前$j$个字符$(1 \leq j \leq n)$(前缀)</p>
+<p>$Z_k=(Z_1,Z_2,…,Z_k)$ 表示$(X,Y)$的最长公共子序列$(LCS(X,Y))$</p>
+<ul>
+<li><p>若<script type="math/tex">X_m = Y_n</script>(最后一个字符相同)，容易得出：<script type="math/tex">Z_k = X_m=Y_n</script>,显然有<script type="math/tex">Z_{k-1}\in LCS(X_{m-1}, Y_{n-1})</script>, 此时问题转化为求<script type="math/tex">LCS(X_{m-1}, Y_{n-1})</script>, 并且有：<script type="math/tex">LCS(X_m,Y_n) = LCS(X_{m-1}, Y_{n-1}) + 1</script></p>
+</li>
+<li><p>若$X_m \neq Y_n$ 由于$Z \in LCS(X_m, Y_n)$, 必有：$Z_k = X_m$ or  $ Z_k = Y_n$成立</p>
+<ul>
+<li><p>当$Z_k = X_m$ 时 $LCS(X_m, Y_n) = LCS(X_{m-1}, Y_n)$</p>
+</li>
+<li><p>当$Z_k = Y_n$时$LCS(X_m,Y_n) = LCS(X_m, Y_{n-1})$</p>
+</li>
+</ul>
+</li>
+<li><p>因此 $LCS(X_m, Y_n)$转化为三个子问题：</p>
+<ul>
+<li><p>$LCS(X_{m-1}, Y_{n-1}) $</p>
+</li>
+<li><p>$LCS(X_{m-1}, Y_n)$</p>
+</li>
+<li><p>$LCS(X_m, Y_{n-1})$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>动态规划(Dynamic programming),看到programming相信好多同学和我一样，瞬间想到的是编程，直到我在算法导论上看到动态规划这章，开篇没几行就提到programming不是编程的意思，这里是指<strong>表格</strong>！所以动态规划的问题离不开辅助表格，常见的有一维数组，二维数组作为辅助表格，多数情况下二维数组可以优化到一维数组，这个要看具体问题。一些被奉为经典的书籍还是要读一读的，有时候简单的一句话能使自己少走不少弯路。</p>
+<h2 id="初始状态"><a href="#初始状态" class="headerlink" title="初始状态"></a>初始状态</h2><p>由上面的分析很自然的想到用二维数组$dp[m+1][n+1]$作为辅助变量, 第$0$行，第$0$列全部为$0$，很容易理解，当其中一个字符串为空时，那么肯定没有公共序列，故其长度也就为0。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>有了上边的分析，就很容易实现了。golang实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LCS</span><span class="params">(A, B <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(A) == <span class="number">0</span> || <span class="built_in">len</span>(B) == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="built_in">len</span>(A)+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(dp); i++ &#123;</span><br><span class="line">		dp[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="built_in">len</span>(B)+<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="built_in">len</span>(A); i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="built_in">len</span>(B); j++ &#123;</span><br><span class="line">			<span class="keyword">if</span> A[i<span class="number">-1</span>] == B[j<span class="number">-1</span>] &#123;</span><br><span class="line">				dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">				<span class="keyword">continue</span></span><br><span class="line">			&#125;</span><br><span class="line">			dp[i][j] = maxLCS(dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[<span class="built_in">len</span>(A)][<span class="built_in">len</span>(B)]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">maxLCS</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度$O(m \times n)$, 空间复杂度$O(m \times n)$,  $m, n$ 分别为$len(A),len(B)$.</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><a href="https://leetcode.com/problems/is-subsequence/" target="_blank" rel="noopener">leetcode 392. Is Subsequence</a></p>
+<p>这个例子可以用$LCS$, 也可以不用，可以两种方法都试一下。</p>
+<h1 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h1><p>给定两个字符串:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A := <span class="string">"string"</span></span><br><span class="line">B := <span class="string">"doing"</span></span><br></pre></td></tr></table></figure>
+<p>求得$A,B$的最长公共子串长度，这里最长公共子串为$”ing”$, 其长度为$3$.</p>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>最长公共子串和最长公共子序列是非常相似的，只是最长公共子串要求子串是连续的。设：</p>
+<p>$X_i=(X_1,X_2,…,X_i)$表示子串$X$的前$i$个字符$(1 \leq i \leq m)$</p>
+<p>$Y_j=(Y_1,Y_2,…,Y_j)$ 表示子串$Y$的前$j$个字符$(1 \leq j \leq n)$</p>
+<p>$Z_k=(Z_1,Z_2,…,Z_k)$ 表示$(X,Y)$的最长公共子串$(LCSub(X,Y))$</p>
+<ul>
+<li>若$X_m = Y_n $  则 $Z_k = Z_{k-1} + 1$</li>
+<li>若$X_m \neq Y_n$ 则 $Z_k = 0$ </li>
+</ul>
+<p>$len(Z_k)$ 即为所求。</p>
+<h2 id="初始状态-1"><a href="#初始状态-1" class="headerlink" title="初始状态"></a>初始状态</h2><p>最长公共子串同样借助二维辅助数组$dp[m+1][n+1]$和最长公共子序列的初始状态是一样的.</p>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><p>跟最长公共子序列的实现稍有差别，一起看一下golang实现：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LCSub</span><span class="params">(A, B <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(A) == <span class="number">0</span> || <span class="built_in">len</span>(B) == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> res <span class="keyword">int</span></span><br><span class="line">	dp := <span class="built_in">make</span>([][]<span class="keyword">int</span>, <span class="built_in">len</span>(A)+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(dp); i++ &#123;</span><br><span class="line">		dp[i] = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="built_in">len</span>(B)+<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="built_in">len</span>(A); i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">1</span>; j &lt;= <span class="built_in">len</span>(B); j++ &#123;</span><br><span class="line">			<span class="keyword">if</span> A[i<span class="number">-1</span>] == B[j<span class="number">-1</span>] &#123;</span><br><span class="line">				dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">				<span class="comment">// 记录最长字串长度</span></span><br><span class="line">				<span class="keyword">if</span> dp[i][j] &gt; res &#123;</span><br><span class="line">					res = dp[i][j]</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">continue</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//主要区别在此</span></span><br><span class="line">			dp[i][j] = <span class="number">0</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跟LCS最主要的差别在于22行，也就是$X_m \neq Y_n$ 的处理。时空复杂度均为$O(m \times n)$ 与LCS一致。</p>
+<h1 id="最长递增子序列"><a href="#最长递增子序列" class="headerlink" title="最长递增子序列"></a>最长递增子序列</h1><p>最长递增子序列(LIS)是给定一个数组$nums$, 找出最长的单调递增子序列(不一定连续，但是相对顺序不可打乱)的长度，例如:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nums := []<span class="keyword">int</span>&#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>$nums$ 的最长递增子序列为${2,3,5}$, 其长度$3$ 即为所求。</p>
+<h2 id="解法1：最长公共子序列"><a href="#解法1：最长公共子序列" class="headerlink" title="解法1：最长公共子序列"></a>解法1：最长公共子序列</h2><p>可以对$nums$ 进行排序 得到$nums1$ 然后可以转化为求$nums, nums1$ 的最长公共子序列问题。</p>
+<h2 id="解法2：动态规划"><a href="#解法2：动态规划" class="headerlink" title="解法2：动态规划"></a>解法2：动态规划</h2><p>设：</p>
+<p>$X_i = (X_1,X_2,…,X_m)$ 表示以$i$结尾的递增序列元素$(1 \leq i \leq m)$, 则有 $LIS(i) = max{LIS(j)} + 1, (j &lt; i $ and $ nums[j] &lt; nums[i])$ </p>
+<p>所以求$LIS(i)$ 的时候 我们需要遍历$nums $前$ i-1$ 个元素 ，时间复杂度为$O(n^2)$, $n$ 为$nums$的长度。</p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">LIS</span><span class="params">(nums []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(nums) &lt; <span class="number">2</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">len</span>(nums)</span><br><span class="line">	&#125;</span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="built_in">len</span>(nums))</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(dp); i++ &#123;</span><br><span class="line">		dp[i] = <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(nums); i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; i; j++ &#123;</span><br><span class="line">			<span class="keyword">if</span> nums[j] &lt; nums[i] &amp;&amp; dp[i] &lt; dp[j]+<span class="number">1</span> &#123;</span><br><span class="line">				dp[i] = dp[j] + <span class="number">1</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	max := dp[<span class="number">0</span>]</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(dp); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> dp[i] &gt; max &#123;</span><br><span class="line">			max = dp[i]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> max</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度$O(n^2)$, 空间复杂度$O(n)$</p>
+<h2 id="解法3"><a href="#解法3" class="headerlink" title="解法3"></a>解法3</h2><p>本题还有时间复杂度为$O(nlogn)$的解法，严格来说已经不属于动态规划范畴了，以后单独来说。</p>
+<h2 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h2><ul>
+<li><p><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">leetcode 300. Longest Increasing Subsequence</a></p>
+</li>
+<li><p><a href="https://www.nowcoder.com/questionTerminal/585d46a1447b4064b749f08c2ab9ce66" target="_blank" rel="noopener">最长递增子序列</a></p>
+</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://blog.csdn.net/v_july_v/article/details/6110269" target="_blank" rel="noopener">动态规划算法解最长公共子序列LCS问题</a></li>
+<li><a href="https://www.kancloud.cn/digest/pieces-algorithm/163624" target="_blank" rel="noopener">最长公共子序列和最长公共子串区别</a></li>
+<li><a href="https://blog.csdn.net/u013074465/article/details/45442067" target="_blank" rel="noopener">最长递增子序列</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/16/887-Super-Egg-Drop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1963,7 +2227,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2027,7 +2291,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -2081,7 +2355,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">8k</span>
+    <span title="Symbols count total">12k</span>
   
 
   
@@ -2090,7 +2364,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">7 mins.</span>
+    <span title="Reading time total">11 mins.</span>
   
 </div>
 
@@ -2301,7 +2575,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("887. Super Egg Drop");titles.push("Golang M-P-G调度模型");titles.push("Golang多个goroutine顺序打印自然数");titles.push("Golang的优势");titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("最长公共子序列 最长公共子串 最长递增子序列");titles.push("887. Super Egg Drop");titles.push("Golang M-P-G调度模型");titles.push("Golang多个goroutine顺序打印自然数");titles.push("Golang的优势");titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
@@ -2328,6 +2602,8 @@
     
       
         
+      
+    
       
     
       
