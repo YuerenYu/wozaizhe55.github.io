@@ -341,6 +341,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuerenyu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/09/Golang多个goroutine顺序打印自然数/" class="post-title-link" itemprop="url">Golang多个goroutine顺序打印自然数</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-09 21:53:59" itemprop="dateCreated datePublished" datetime="2019-08-09T21:53:59+08:00">2019-08-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-10 17:24:30" itemprop="dateModified" datetime="2019-08-10T17:24:30+08:00">2019-08-10</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">696</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>并发一直是面试中老生常谈的问题，golang实现并发很容易，但是如何保持顺序读取呢？比如这个题目：</p>
+<p>用3个goroutine循序打印前n个自然数。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>并发的问题很自然想到要加锁，来限制资源竞争。我们需要读取第i个自然数（1 &lt;= i &lt;= n）, 之后还要进行加1操作，因此选择互斥锁Mutex。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>Golang代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"sync"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> wg sync.WaitGroup</span><br><span class="line">	<span class="keyword">var</span> lock sync.Mutex</span><br><span class="line">	num := <span class="number">3</span> <span class="comment">//定义goroutien数量</span></span><br><span class="line">	n := <span class="number">100</span> <span class="comment">//顺序打印前n个自然数</span></span><br><span class="line">	cur := <span class="number">1</span></span><br><span class="line">	<span class="built_in">print</span> := <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="keyword">for</span> &#123;</span><br><span class="line">			lock.Lock()</span><br><span class="line">			<span class="keyword">if</span> cur &gt; n &#123;</span><br><span class="line">				lock.Unlock()</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Printf(<span class="string">"%d "</span>, cur)</span><br><span class="line">			<span class="comment">//此处可以加入换行条件</span></span><br><span class="line">			cur++</span><br><span class="line">			lock.Unlock()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; num; i++ &#123;</span><br><span class="line">		wg.Add(<span class="number">1</span>)</span><br><span class="line">		<span class="keyword">go</span> <span class="built_in">print</span>()</span><br><span class="line">	&#125;</span><br><span class="line">	wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Golang中有channel优雅的解决goroutine的数据同步问题，channel本身可以保证有序，如何保证goroutine顺序读取呢，这个问题值得思考。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/06/Golang的优势/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -721,199 +917,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/07/29/二分查找取mid的思考/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
-      <meta itemprop="description" content="一个程序员的自我救赎">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/29/二分查找取mid的思考/" class="post-title-link" itemprop="url">二分查找取mid的思考</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-29 21:18:31 / Modified: 22:02:47" itemprop="dateCreated datePublished" datetime="2019-07-29T21:18:31+08:00">2019-07-29</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">868</span>
-            </span>
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>二分查找是一种高效的查找方式，应用于有序的顺序表，时间复杂度O(logn). </p>
-<h3 id="日常写法"><a href="#日常写法" class="headerlink" title="日常写法"></a>日常写法</h3><p>平日里没太注意，这样实现二分查找</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">searchBin</span><span class="params">(nums []<span class="keyword">int</span>, key <span class="keyword">int</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">  low, high := <span class="number">0</span>, <span class="built_in">len</span>(nums)<span class="number">-1</span></span><br><span class="line">  <span class="keyword">for</span> low &lt;= high&#123;</span><br><span class="line">    mid := (low + high) / <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> nums[mid] == key&#123;</span><br><span class="line">      <span class="keyword">return</span> mid</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> nums[mid] &gt; key&#123;</span><br><span class="line">      high = mid - <span class="number">1</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      low = mid + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然了大多数情况下这么写并没有问题，平日里咱们的数组长度不太可能达到 2<sup>32</sup> 的三分之二，mid也就不会达到无符号整型的上限2<sup>32</sup> ,从而不会溢出导致死循环。</p>
-<h3 id="日常写法潜在问题"><a href="#日常写法潜在问题" class="headerlink" title="日常写法潜在问题"></a>日常写法潜在问题</h3><p>然而一些情况是需要考虑溢出的，比如平日里玩的猜数字，玩家1出一个32位无符号整数，玩家2来猜，玩家1会反馈是猜的大了还是猜的小了，此时如果仍按照这样的写法</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid := (low + high) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>若玩家1 出的数字超过了2<sup>32</sup> 的三分之二，mid将会溢出，变为负数，程序陷入死循环。</p>
-<p>LeetCode上边一个具体的例子：<a href="https://leetcode.com/problems/first-bad-version/" target="_blank" rel="noopener">278. First Bad Version</a></p>
-<p>如果按照上边的二分查找写法将会陷入死循环。</p>
-<h3 id="改善思路"><a href="#改善思路" class="headerlink" title="改善思路"></a>改善思路</h3><p>mid的值是low和high的中值，那么mid的值肯定没有超过high的值，既然high没有溢出，mid同样可以做到不溢出。按照这个思路，可以将求mid的写法改为：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid := low + (high - low) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>这样的写法可以应用到很多涉及求中值的场景比如快排的partion等等。</p>
-<p>这个问题也反映出了我平时写代码不太严谨，以后要多加注意，这篇文章也作为一个记录，改善一点点做起。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -960,7 +963,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -987,7 +990,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -1040,7 +1045,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1094,7 +1101,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">14k</span>
+    <span title="Symbols count total">16k</span>
   
 
   
@@ -1103,7 +1110,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">13 mins.</span>
+    <span title="Reading time total">14 mins.</span>
   
 </div>
 
@@ -1314,7 +1321,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Golang的优势");titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("Golang多个goroutine顺序打印自然数");titles.push("Golang的优势");titles.push("Linux cp与mv的区别");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
