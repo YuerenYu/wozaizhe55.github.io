@@ -97,13 +97,13 @@
   <meta name="description" content="一个程序员的自我救赎">
 <meta name="keywords" content="技术,积累,分享">
 <meta property="og:type" content="website">
-<meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/page/4/index.html">
-<meta property="og:site_name" content="yuerenyu&#39;s Blog">
+<meta property="og:title" content="wozaizhe55&#39;s Blog">
+<meta property="og:url" content="https://wozaizhe55.github.io/page/4/index.html">
+<meta property="og:site_name" content="wozaizhe55&#39;s Blog">
 <meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuerenyu&#39;s Blog">
+<meta name="twitter:title" content="wozaizhe55&#39;s Blog">
 <meta name="twitter:description" content="一个程序员的自我救赎">
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/page/4/">
+  <link rel="canonical" href="https://wozaizhe55.github.io/page/4/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>yuerenyu's Blog</title>
+  <title>wozaizhe55's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">yuerenyu's Blog</span>
+        <span class="site-title">wozaizhe55's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -341,16 +341,219 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/04/Linux-cp与mv的区别/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/06/Golang的优势/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/06/Golang的优势/" class="post-title-link" itemprop="url">Golang的优势</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-06 21:14:00" itemprop="dateCreated datePublished" datetime="2019-08-06T21:14:00+08:00">2019-08-06</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-10 17:24:21" itemprop="dateModified" datetime="2019-08-10T17:24:21+08:00">2019-08-10</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">826</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。</p>
+<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h1><p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — golang.org</p>
+<h2 id="速度快"><a href="#速度快" class="headerlink" title="速度快"></a>速度快</h2><p>Golang在执行效率和开发效率之间做到了协调，性能强劲，开发效率又不弱于python等动态语言。</p>
+<h3 id="执行速度快"><a href="#执行速度快" class="headerlink" title="执行速度快"></a>执行速度快</h3><p>Golang的执行效率虽然不及C、C++，但强于Java、C#，远远强于python这类动态语言。</p>
+<h3 id="开发速度快"><a href="#开发速度快" class="headerlink" title="开发速度快"></a>开发速度快</h3><p>Golang 拥有更智能的编译器，只关注被直接引用的库，不像Java、C和C++那样，要遍历依赖链中所有依赖的库，又不像动态语言那样缺少编译过程，类型错误无法捕捉。Golang编译极快，几乎感受不到编译过程。</p>
+<h2 id="并发友好"><a href="#并发友好" class="headerlink" title="并发友好"></a>并发友好</h2><p>现代计算机都拥有多个核心，但是大部分编程语言都没有有效的工具让程序可以轻易利用这些资源，需要编写大量同步代码来利用多核，很容易出错。Golang一个很重要的特性便是在系统层面支持并发，简化了并发程序的编写。</p>
+<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine很像线程，但是它占用的内存远少于线程，使用它需要的代码也很少，一台普通的PC就能支持百万级别的goroutine调用。</p>
+<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>channel是一种数据结构，可以让goroutine之间进行安全的数据通信。channel可以帮助用户避免其他语言里常见的共享内存访问的问题。</p>
+<h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Golang仅有25个关键字，但是表达能力极强，几乎涵盖大多数编程特性：继承、多态、重载等。Golang的类型也非常简单，不仅支持常见的int、string，还可以像C一样自定义结构体。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Go语言实战》</li>
+<li><a href="https://www.zhihu.com/question/21409296" target="_blank" rel="noopener">为什么要使用 Go 语言？Go 语言的优势在哪里？</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/04/Linux-cp与mv的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -533,16 +736,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/07/29/二分查找取mid的思考/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/07/29/二分查找取mid的思考/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -711,201 +914,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/07/23/290-Word-Pattern/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
-      <meta itemprop="description" content="一个程序员的自我救赎">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/23/290-Word-Pattern/" class="post-title-link" itemprop="url">290. Word Pattern</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-23 18:28:52 / Modified: 19:33:24" itemprop="dateCreated datePublished" datetime="2019-07-23T18:28:52+08:00">2019-07-23</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">1.3k</span>
-            </span>
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目：<a href="https://leetcode.com/problems/word-pattern/" target="_blank" rel="noopener">290. Word Pattern</a></p>
-<p>题目考查双射，pattern中的一个字母对应str中的一个单词，二者是一一对应的，假如pattern中的 A可以映射到str中的B，则有f(A) = B, g(B) = A.  </p>
-<p>将str中的单词按照顺序保存到数组中。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss := strings.split(str, <span class="string">" "</span>)</span><br></pre></td></tr></table></figure>
-<p>一个隐含条件，pattern的长度必须与str中的单词个数相等，即：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">len</span>(pattern) == <span class="built_in">len</span>(ss)</span><br></pre></td></tr></table></figure>
-<h1 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h1><p>建立两个map，一个用pattern中的字符作为key，str中的单词作为value，另一个用str中的单词作为key，pattern中的字符作为value。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map1 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">uint8</span>]<span class="keyword">string</span>)</span><br><span class="line">map2 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">uint8</span>)</span><br></pre></td></tr></table></figure>
-<p>假设下标i (0 &lt;= i &lt; len(pattern)), 判断map1[pattern[i]], map2[ss[i]] 是否存在，若不存在，则添加；若存在，则判断 </p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map1[pattern[i]] == ss[i]</span><br><span class="line">map2[ss[i]] == pattern[i]</span><br></pre></td></tr></table></figure>
-<p>这两个判断是否为真，若不真，则return false，若为真 循环继续。</p>
-<p>循环结束则返回true</p>
-<h1 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h1><p>思路一的内存开销太大创建了两个map，并且map是集合不能随机存取，每次比较的时间成本较高。</p>
-<p>pattern中第i个字符和ss中第i个单词是否满足双射可以依据前i - 1 双射满足情况，判断当前字符pattern[i]在pattern中第一次出现的位置idx1，与当前单词ss[i]在ss中第一次出现的位置idx2，若idx1 == idx2 则 循环继续，否则return false。golang实现如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordPattern</span><span class="params">(pattern <span class="keyword">string</span>, str <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">//将str单词保存到ss中</span></span><br><span class="line">	ss := strings.Split(str, <span class="string">" "</span>)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(ss) != <span class="built_in">len</span>(pattern) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//循环判断是否满足双射</span></span><br><span class="line">	<span class="keyword">for</span> i, c := <span class="keyword">range</span> pattern&#123;</span><br><span class="line">		<span class="keyword">if</span> strings.IndexByte(pattern, <span class="keyword">byte</span>(c)) != findIndex290(ss, ss[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回src 第一次在ss中出现的下标，若未出现返回 -1</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex290</span><span class="params">(ss []<span class="keyword">string</span>, src <span class="keyword">string</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> i, s := <span class="keyword">range</span> ss &#123;</span><br><span class="line">		<span class="keyword">if</span> s == src&#123;</span><br><span class="line">			<span class="keyword">return</span> i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -941,7 +949,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">yueren.yu</p>
+              <p class="site-author-name" itemprop="name">wozaizhe55</p>
               <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
           </div>
 
@@ -952,7 +960,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -983,7 +991,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -1042,7 +1052,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1088,7 +1100,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">yueren.yu</span>
+  <span class="author" itemprop="copyrightHolder">wozaizhe55</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -1096,7 +1108,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">19k</span>
   
 
   
@@ -1105,7 +1117,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   
 </div>
 
@@ -1316,7 +1328,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");titles.push("290. Word Pattern");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("Golang的优势");titles.push("Linux cp与mv的区别");titles.push("二分查找取mid的思考");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

@@ -94,18 +94,20 @@
 
 
 
-  <meta name="description" content="问题背景最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。 GolangGo is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — gola">
-<meta name="keywords" content="Go,Golang,优势">
+  <meta name="description" content="背景最近需要在服务器上部署Mysql，出于业务需要选择了 Mysql 5.7.30，之前也有过安装 Mysql 的记录，一直没有记录过，装一次搜一次比较麻烦，这次将完整的安装步骤记录一下，便于以后查找。 下载Mysql 官网提供了 Mysql 5.7.30 的下载链接，根据需要选择对应的服务器，这里选择 Red Hat Enterprise Linux 7。  Bundle 是下边所有包的集合，不">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang的优势">
-<meta property="og:url" content="https://wozaizhe55.github.io/2019/08/06/Golang的优势/index.html">
+<meta property="og:title" content="Mysql 5.7.30 安装记录">
+<meta property="og:url" content="https://wozaizhe55.github.io/2020/05/31/Mysql-5-7-30-安装记录/index.html">
 <meta property="og:site_name" content="wozaizhe55&#39;s Blog">
-<meta property="og:description" content="问题背景最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。 GolangGo is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — gola">
+<meta property="og:description" content="背景最近需要在服务器上部署Mysql，出于业务需要选择了 Mysql 5.7.30，之前也有过安装 Mysql 的记录，一直没有记录过，装一次搜一次比较麻烦，这次将完整的安装步骤记录一下，便于以后查找。 下载Mysql 官网提供了 Mysql 5.7.30 的下载链接，根据需要选择对应的服务器，这里选择 Red Hat Enterprise Linux 7。  Bundle 是下边所有包的集合，不">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-10T09:24:21.832Z">
+<meta property="og:image" content="https://wozaizhe55.github.io/2020/05/31/Mysql-5-7-30-安装记录/mysql安装包.png">
+<meta property="og:updated_time" content="2020-05-31T15:54:28.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Golang的优势">
-<meta name="twitter:description" content="问题背景最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。 GolangGo is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — gola">
+<meta name="twitter:title" content="Mysql 5.7.30 安装记录">
+<meta name="twitter:description" content="背景最近需要在服务器上部署Mysql，出于业务需要选择了 Mysql 5.7.30，之前也有过安装 Mysql 的记录，一直没有记录过，装一次搜一次比较麻烦，这次将完整的安装步骤记录一下，便于以后查找。 下载Mysql 官网提供了 Mysql 5.7.30 的下载链接，根据需要选择对应的服务器，这里选择 Red Hat Enterprise Linux 7。  Bundle 是下边所有包的集合，不">
+<meta name="twitter:image" content="https://wozaizhe55.github.io/2020/05/31/Mysql-5-7-30-安装记录/mysql安装包.png">
 
 
 
@@ -113,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://wozaizhe55.github.io/2019/08/06/Golang的优势/">
+  <link rel="canonical" href="https://wozaizhe55.github.io/2020/05/31/Mysql-5-7-30-安装记录/">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title>Golang的优势 | wozaizhe55's Blog</title>
+  <title>Mysql 5.7.30 安装记录 | wozaizhe55's Blog</title>
   
 
 
@@ -341,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/06/Golang的优势/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2020/05/31/Mysql-5-7-30-安装记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wozaizhe55">
@@ -358,7 +360,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Golang的优势
+          <h1 class="post-title" itemprop="name headline">Mysql 5.7.30 安装记录
 
               
             
@@ -384,23 +386,13 @@
                 
               
 
-              <time title="Created: 2019-08-06 21:14:00" itemprop="dateCreated datePublished" datetime="2019-08-06T21:14:00+08:00">2019-08-06</time>
+              <time title="Created: 2020-05-31 23:12:18 / Modified: 23:54:28" itemprop="dateCreated datePublished" datetime="2020-05-31T23:12:18+08:00">2020-05-31</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-10 17:24:21" itemprop="dateModified" datetime="2019-08-10T17:24:21+08:00">2019-08-10</time>
-              </span>
             
           
 
@@ -413,7 +405,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
 
                 
                 
@@ -440,7 +432,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span title="Symbols count in article">826</span>
+              <span title="Symbols count in article">1.9k</span>
             </span>
           
 
@@ -452,7 +444,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span title="Reading time">1 mins.</span>
+              <span title="Reading time">2 mins.</span>
             </span>
           
 
@@ -471,18 +463,42 @@
       
 
       
-        <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。</p>
-<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h1><p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — golang.org</p>
-<h2 id="速度快"><a href="#速度快" class="headerlink" title="速度快"></a>速度快</h2><p>Golang在执行效率和开发效率之间做到了协调，性能强劲，开发效率又不弱于python等动态语言。</p>
-<h3 id="执行速度快"><a href="#执行速度快" class="headerlink" title="执行速度快"></a>执行速度快</h3><p>Golang的执行效率虽然不及C、C++，但强于Java、C#，远远强于python这类动态语言。</p>
-<h3 id="开发速度快"><a href="#开发速度快" class="headerlink" title="开发速度快"></a>开发速度快</h3><p>Golang 拥有更智能的编译器，只关注被直接引用的库，不像Java、C和C++那样，要遍历依赖链中所有依赖的库，又不像动态语言那样缺少编译过程，类型错误无法捕捉。Golang编译极快，几乎感受不到编译过程。</p>
-<h2 id="并发友好"><a href="#并发友好" class="headerlink" title="并发友好"></a>并发友好</h2><p>现代计算机都拥有多个核心，但是大部分编程语言都没有有效的工具让程序可以轻易利用这些资源，需要编写大量同步代码来利用多核，很容易出错。Golang一个很重要的特性便是在系统层面支持并发，简化了并发程序的编写。</p>
-<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine很像线程，但是它占用的内存远少于线程，使用它需要的代码也很少，一台普通的PC就能支持百万级别的goroutine调用。</p>
-<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>channel是一种数据结构，可以让goroutine之间进行安全的数据通信。channel可以帮助用户避免其他语言里常见的共享内存访问的问题。</p>
-<h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Golang仅有25个关键字，但是表达能力极强，几乎涵盖大多数编程特性：继承、多态、重载等。Golang的类型也非常简单，不仅支持常见的int、string，还可以像C一样自定义结构体。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近需要在服务器上部署Mysql，出于业务需要选择了 Mysql 5.7.30，之前也有过安装 Mysql 的记录，一直没有记录过，装一次搜一次比较麻烦，这次将完整的安装步骤记录一下，便于以后查找。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Mysql 官网提供了 Mysql 5.7.30 的<a href="https://dev.mysql.com/downloads/mysql/5.7.html" target="_blank" rel="noopener">下载链接</a>，根据需要选择对应的服务器，这里选择 Red Hat Enterprise Linux 7。</p>
+<p><img src="/2020/05/31/Mysql-5-7-30-安装记录/mysql安装包.png" alt></p>
+<p>Bundle 是下边所有包的集合，不想麻烦的话可以下载（除了安装包有些大..），最小化安装mysql 需要四个组件分别为：server, client, common, libs，这里选择最小化安装的方式。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装包下载完成后，通过 xftp 上传到服务器，进行安装，这四个组件的安装顺序为：</p>
+<p>common -&gt; libs -&gt; client -&gt; server, 如果顺序错了会提醒缺少依赖，按照提醒也能够找到正确的安装顺序。</p>
+<p>安装 libs 时候提示了依赖冲突，与 <code>mariadb-libs-5.5.44-2.el7</code> 冲突了，这是因为 Red Hat 内置了 Mariadb 数据库替代原本的 Mysql（Oracle 收购了 Mysql 存在闭源风险），需要将这个包删除掉。通过：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e mariadb-libs-5.5.44-2.el7</span><br></pre></td></tr></table></figure>
+<p>会报错，大致是这个库被其他组件 postfix 使用了，这是一个自带的邮件服务，确认该服务器上没有使用之后，我们进行强制删除 mariadb。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps mariadb-libs-5.5.44-2.el7</span><br></pre></td></tr></table></figure>
+<p>然后按照上述顺序，进行继续安装即可，rpm 安装方式非常方便。</p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>Mysql 安装完成后会生成一个随机密码，可以在日志中找到随机密码，然后登录可以进行密码修改，日志文件默认为<code>/var/log/mysqld.log</code>; 还有一种方法为关闭密码验证，然后修改密码达到重置密码的效果。</p>
+<h3 id="关闭密码验证"><a href="#关闭密码验证" class="headerlink" title="关闭密码验证"></a>关闭密码验证</h3><p>Mysql 的默认配置文件为 /etc/my.ini, 我们在这个文件中新增一行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld] # 这个下边</span><br><span class="line">skip-grant-tables #新增行</span><br></pre></td></tr></table></figure>
+<p>然后保存退出，<code>service mysql restart</code> 重启mysql。</p>
+<p>通过 <code>mysql -uroot -p</code> 进行登录，此时不需要密码即可登录，然后修改密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user  <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'root'</span>) <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>；</span><br></pre></td></tr></table></figure>
+<p>注意这里 <code>authentication_string</code> 字段取代了之前的<code>password</code> 字段然后执行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p>写入数据库。然后编辑 my.ini, 去掉刚加的那行，重启mysql。</p>
+<p>输入密码即可进行登录，操作时会收到重置密码提醒：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR</span><br><span class="line">1820 (HY000): You must reset your password using ALTER USER statement；</span><br></pre></td></tr></table></figure>
+<p>通过 <code>SET PASSWORD = PASSWORD(&#39;xxxxxxxx&#39;);</code> 重置一下即可，注意密码强度必须达到8位并且包含大小写、数字、特殊字符。要不然需要修改密码等级，可以自行操作下。</p>
+<p>至此 mysql 已经安装且本地可以登录。</p>
+<h3 id="开启-Mysql-远程登录"><a href="#开启-Mysql-远程登录" class="headerlink" title="开启 Mysql 远程登录"></a>开启 Mysql 远程登录</h3><p>一般的咱们用工具连接数据的比较多（用命令行的大牛请无视），这时需要开启 mysql 的远程访问，默认是关闭的，也很简单几条 sql 语句即可。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> host = <span class="string">'%'</span> <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+<p>即可实现，通过授权的方式也可以实现类似功能，常用于新创建账号：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span>  <span class="keyword">on</span> *.* <span class="keyword">to</span> root@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">"password"</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+<p>表示通过密码 <code>password</code> 访问 root 账户，并赋予所有库所有表的访问权限。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>《Go语言实战》</li>
-<li><a href="https://www.zhihu.com/question/21409296" target="_blank" rel="noopener">为什么要使用 Go 语言？Go 语言的优势在哪里？</a></li>
+<li><a href="https://blog.csdn.net/justlpf/article/details/80702242" target="_blank" rel="noopener">CentOS 7下安装MySQL与mariadb冲突的解决办法</a></li>
+<li><a href="https://blog.csdn.net/wokao_wg/article/details/78523366" target="_blank" rel="noopener">Linux MySQL-5.7 root初始密码修改</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2016-10/136522.htm" target="_blank" rel="noopener">CentOS中安装了MySQL 5.7后不知道随机密码问题解决</a></li>
+<li><a href="https://www.cnblogs.com/weifeng1463/p/7941625.html" target="_blank" rel="noopener">开启MySQL远程访问权限 允许远程连接</a></li>
+<li><a href="https://blog.csdn.net/wudinaniya/article/details/79378635" target="_blank" rel="noopener">安装MySQL报错 : Your password does not satisfy the current policy requirements</a></li>
+<li><a href="https://blog.csdn.net/konglongaa/article/details/80996829" target="_blank" rel="noopener">mysql给root开启远程访问权限</a></li>
 </ul>
 
       
@@ -510,11 +526,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Go/" rel="tag"># Go</a>
-          
-            <a href="/tags/Golang/" rel="tag"># Golang</a>
-          
-            <a href="/tags/优势/" rel="tag"># 优势</a>
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
           
         </div>
       
@@ -527,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/04/Linux-cp与mv的区别/" rel="next" title="Linux cp与mv的区别">
-                <i class="fa fa-chevron-left"></i> Linux cp与mv的区别
+              <a href="/2020/03/30/Latex-算法跨页并修改标题/" rel="next" title="Latex 算法跨页并修改标题">
+                <i class="fa fa-chevron-left"></i> Latex 算法跨页并修改标题
               </a>
             
           </div>
@@ -536,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/09/Golang多个goroutine顺序打印自然数/" rel="prev" title="Golang多个goroutine顺序打印自然数">
-                Golang多个goroutine顺序打印自然数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -740,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题背景"><span class="nav-number">1.</span> <span class="nav-text">问题背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Golang"><span class="nav-number">2.</span> <span class="nav-text">Golang</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#速度快"><span class="nav-number">2.1.</span> <span class="nav-text">速度快</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行速度快"><span class="nav-number">2.1.1.</span> <span class="nav-text">执行速度快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发速度快"><span class="nav-number">2.1.2.</span> <span class="nav-text">开发速度快</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发友好"><span class="nav-number">2.2.</span> <span class="nav-text">并发友好</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#goroutine"><span class="nav-number">2.2.1.</span> <span class="nav-text">goroutine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#channel"><span class="nav-number">2.2.2.</span> <span class="nav-text">channel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单"><span class="nav-number">2.3.</span> <span class="nav-text">简单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">2.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录"><span class="nav-number">2.2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关闭密码验证"><span class="nav-number">2.3.</span> <span class="nav-text">关闭密码验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-Mysql-远程登录"><span class="nav-number">2.4.</span> <span class="nav-text">开启 Mysql 远程登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -985,13 +993,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/docs/variables.html
-      var isPost = 'Golang的优势'.length > 0
+      var isPost = 'Mysql 5.7.30 安装记录'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = 'Golang的优势'
+        var title = 'Mysql 5.7.30 安装记录'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))

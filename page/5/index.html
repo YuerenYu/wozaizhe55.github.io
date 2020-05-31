@@ -97,13 +97,13 @@
   <meta name="description" content="一个程序员的自我救赎">
 <meta name="keywords" content="技术,积累,分享">
 <meta property="og:type" content="website">
-<meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/page/5/index.html">
-<meta property="og:site_name" content="yuerenyu&#39;s Blog">
+<meta property="og:title" content="wozaizhe55&#39;s Blog">
+<meta property="og:url" content="https://wozaizhe55.github.io/page/5/index.html">
+<meta property="og:site_name" content="wozaizhe55&#39;s Blog">
 <meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuerenyu&#39;s Blog">
+<meta name="twitter:title" content="wozaizhe55&#39;s Blog">
 <meta name="twitter:description" content="一个程序员的自我救赎">
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/page/5/">
+  <link rel="canonical" href="https://wozaizhe55.github.io/page/5/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>yuerenyu's Blog</title>
+  <title>wozaizhe55's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">yuerenyu's Blog</span>
+        <span class="site-title">wozaizhe55's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -341,16 +341,211 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/07/22/234-Palindrome-Linked-List/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/07/23/290-Word-Pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/23/290-Word-Pattern/" class="post-title-link" itemprop="url">290. Word Pattern</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-23 18:28:52 / Modified: 19:33:24" itemprop="dateCreated datePublished" datetime="2019-07-23T18:28:52+08:00">2019-07-23</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.3k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目：<a href="https://leetcode.com/problems/word-pattern/" target="_blank" rel="noopener">290. Word Pattern</a></p>
+<p>题目考查双射，pattern中的一个字母对应str中的一个单词，二者是一一对应的，假如pattern中的 A可以映射到str中的B，则有f(A) = B, g(B) = A.  </p>
+<p>将str中的单词按照顺序保存到数组中。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss := strings.split(str, <span class="string">" "</span>)</span><br></pre></td></tr></table></figure>
+<p>一个隐含条件，pattern的长度必须与str中的单词个数相等，即：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">len</span>(pattern) == <span class="built_in">len</span>(ss)</span><br></pre></td></tr></table></figure>
+<h1 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h1><p>建立两个map，一个用pattern中的字符作为key，str中的单词作为value，另一个用str中的单词作为key，pattern中的字符作为value。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map1 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">uint8</span>]<span class="keyword">string</span>)</span><br><span class="line">map2 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">uint8</span>)</span><br></pre></td></tr></table></figure>
+<p>假设下标i (0 &lt;= i &lt; len(pattern)), 判断map1[pattern[i]], map2[ss[i]] 是否存在，若不存在，则添加；若存在，则判断 </p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map1[pattern[i]] == ss[i]</span><br><span class="line">map2[ss[i]] == pattern[i]</span><br></pre></td></tr></table></figure>
+<p>这两个判断是否为真，若不真，则return false，若为真 循环继续。</p>
+<p>循环结束则返回true</p>
+<h1 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h1><p>思路一的内存开销太大创建了两个map，并且map是集合不能随机存取，每次比较的时间成本较高。</p>
+<p>pattern中第i个字符和ss中第i个单词是否满足双射可以依据前i - 1 双射满足情况，判断当前字符pattern[i]在pattern中第一次出现的位置idx1，与当前单词ss[i]在ss中第一次出现的位置idx2，若idx1 == idx2 则 循环继续，否则return false。golang实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">wordPattern</span><span class="params">(pattern <span class="keyword">string</span>, str <span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="comment">//将str单词保存到ss中</span></span><br><span class="line">	ss := strings.Split(str, <span class="string">" "</span>)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(ss) != <span class="built_in">len</span>(pattern) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//循环判断是否满足双射</span></span><br><span class="line">	<span class="keyword">for</span> i, c := <span class="keyword">range</span> pattern&#123;</span><br><span class="line">		<span class="keyword">if</span> strings.IndexByte(pattern, <span class="keyword">byte</span>(c)) != findIndex290(ss, ss[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回src 第一次在ss中出现的下标，若未出现返回 -1</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">findIndex290</span><span class="params">(ss []<span class="keyword">string</span>, src <span class="keyword">string</span>)</span> <span class="title">int</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> i, s := <span class="keyword">range</span> ss &#123;</span><br><span class="line">		<span class="keyword">if</span> s == src&#123;</span><br><span class="line">			<span class="keyword">return</span> i</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/07/22/234-Palindrome-Linked-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -561,7 +756,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">yueren.yu</p>
+              <p class="site-author-name" itemprop="name">wozaizhe55</p>
               <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
           </div>
 
@@ -572,7 +767,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -603,7 +798,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -662,7 +859,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -708,7 +907,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">yueren.yu</span>
+  <span class="author" itemprop="copyrightHolder">wozaizhe55</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -716,7 +915,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">19k</span>
   
 
   
@@ -725,7 +924,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   
 </div>
 
@@ -936,7 +1135,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("290. Word Pattern");titles.push("234. Palindrome Linked List");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
@@ -960,6 +1159,8 @@
 
   
   
+    
+      
     
       
     

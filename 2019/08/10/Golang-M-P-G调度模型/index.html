@@ -98,18 +98,18 @@
 <meta name="keywords" content="Go,Golang,goroutine,mpg模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Golang M-P-G调度模型">
-<meta property="og:url" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/index.html">
-<meta property="og:site_name" content="yuerenyu&#39;s Blog">
+<meta property="og:url" content="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/index.html">
+<meta property="og:site_name" content="wozaizhe55&#39;s Blog">
 <meta property="og:description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/local_queue.png">
-<meta property="og:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/merged.png">
+<meta property="og:image" content="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
+<meta property="og:image" content="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/local_queue.png">
+<meta property="og:image" content="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/merged.png">
 <meta property="og:updated_time" content="2019-08-10T10:58:31.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang M-P-G调度模型">
 <meta name="twitter:description" content="背景Golang对高并发的支持，源于可以创建成千上万个goroutine，这么多goroutine的调度模型叫做MPG模型，谈这个模型前，我们先回顾一下操作系统进程（process）和线程（thread）的概念。 进程和线程进程：当运行一个程序的时候，操作系统会为这个应用程序启动一个进程。可以将这个进程看作一个包含了应用程序在运行中需要用到和维护的各种资源的容器。 线程：一个线程是一个执行空间，这">
-<meta name="twitter:image" content="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
+<meta name="twitter:image" content="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/global_queue.png">
 
 
 
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/">
+  <link rel="canonical" href="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>Golang M-P-G调度模型 | yuerenyu's Blog</title>
+  <title>Golang M-P-G调度模型 | wozaizhe55's Blog</title>
   
 
 
@@ -209,7 +209,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">yuerenyu's Blog</span>
+        <span class="site-title">wozaizhe55's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -345,16 +345,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -590,7 +590,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">yueren.yu</p>
+              <p class="site-author-name" itemprop="name">wozaizhe55</p>
               <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
           </div>
 
@@ -601,7 +601,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -632,7 +632,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -691,7 +693,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -754,7 +758,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">yueren.yu</span>
+  <span class="author" itemprop="copyrightHolder">wozaizhe55</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -762,7 +766,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">19k</span>
   
 
   
@@ -771,7 +775,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   
 </div>
 

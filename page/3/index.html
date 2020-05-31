@@ -97,13 +97,13 @@
   <meta name="description" content="一个程序员的自我救赎">
 <meta name="keywords" content="技术,积累,分享">
 <meta property="og:type" content="website">
-<meta property="og:title" content="yuerenyu&#39;s Blog">
-<meta property="og:url" content="https://yuerenyu.github.io/page/3/index.html">
-<meta property="og:site_name" content="yuerenyu&#39;s Blog">
+<meta property="og:title" content="wozaizhe55&#39;s Blog">
+<meta property="og:url" content="https://wozaizhe55.github.io/page/3/index.html">
+<meta property="og:site_name" content="wozaizhe55&#39;s Blog">
 <meta property="og:description" content="一个程序员的自我救赎">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuerenyu&#39;s Blog">
+<meta name="twitter:title" content="wozaizhe55&#39;s Blog">
 <meta name="twitter:description" content="一个程序员的自我救赎">
 
 
@@ -112,7 +112,7 @@
 
   
   
-  <link rel="canonical" href="https://yuerenyu.github.io/page/3/">
+  <link rel="canonical" href="https://wozaizhe55.github.io/page/3/">
 
 
 
@@ -122,7 +122,7 @@
   };
 </script>
 
-  <title>yuerenyu's Blog</title>
+  <title>wozaizhe55's Blog</title>
   
 
 
@@ -205,7 +205,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">yuerenyu's Blog</span>
+        <span class="site-title">wozaizhe55's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -341,16 +341,242 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/10/Golang-M-P-G调度模型/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/16/887-Super-Egg-Drop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/16/887-Super-Egg-Drop/" class="post-title-link" itemprop="url">887. Super Egg Drop</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 21:06:07" itemprop="dateCreated datePublished" datetime="2019-08-16T21:06:07+08:00">2019-08-16</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-17 09:50:11" itemprop="dateModified" datetime="2019-08-17T09:50:11+08:00">2019-08-17</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.2k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">2 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>动态规划一直是算法题的难点，最近一直在找工作，编程题始终绕不开这块，一点一点啃吧。</p>
+<h1 id="扔鸡蛋"><a href="#扔鸡蛋" class="headerlink" title="扔鸡蛋"></a>扔鸡蛋</h1><p>扔鸡蛋问题是动态规划里的经典问题，比如：有两个鸡蛋，100层楼，鸡蛋会在<script type="math/tex">n</script>层碎掉（1 &lt;= <script type="math/tex">n</script> &lt;= 100）, 小于<script type="math/tex">n</script>层鸡蛋完好，求最少需要扔多少次鸡蛋可以求出<script type="math/tex">n</script>。还可以扩展一下，<script type="math/tex">K</script>个鸡蛋 <script type="math/tex">H</script>层楼，求最小扔鸡蛋次数<script type="math/tex">N</script>，得出鸡蛋会碎的楼层<script type="math/tex">n</script>。例如：<a href="https://leetcode.com/problems/super-egg-drop/" target="_blank" rel="noopener">leetcode: 887. Super Egg Drop</a></p>
+<h2 id="解法1"><a href="#解法1" class="headerlink" title="解法1."></a>解法1.</h2><p>我们用 <script type="math/tex">F(h,k)</script> 表示<script type="math/tex">h</script>层楼，<script type="math/tex">k</script>个鸡蛋找出鸡蛋破碎楼层<script type="math/tex">n</script>的最小值。显然当在<script type="math/tex">h</script> 层扔鸡蛋时，有两种结果，碎和不碎，当碎时就转化为<script type="math/tex">F(h-1,k-1)</script> ,当不碎时转化为 <script type="math/tex">F(H-h,k)</script> 即 剩下<script type="math/tex">H-h</script> 层楼，<script type="math/tex">k</script> 个鸡蛋求解n的最小值。因为在<script type="math/tex">h</script>层扔了1次，所以取二者的最大值加<script type="math/tex">1</script> 为什么是取最大值呢？这里要求的最大<strong>尝试</strong>次数，最小的解<script type="math/tex">N</script>. 即：</p>
+<script type="math/tex; mode=display">F(h,k)=min(max(F(h-1,k-1),F(H-h,k))+1)</script><p>按照动态规划的自底向上的求解思路，用一个$(K+1)\times (H+1)$的辅助矩阵<script type="math/tex">dp</script>来表示整个过程，初始状态，<script type="math/tex">1</script>个鸡蛋时候第<script type="math/tex">h</script>层值为<script type="math/tex">h</script>，<script type="math/tex">1</script>层楼时，不管多少个鸡蛋只需要测<script type="math/tex">1</script>次。</p>
+<p><img src="/2019/08/16/887-Super-Egg-Drop/1.first.png" alt="初始状态"></p>
+<p>依次计算<script type="math/tex">F(2,2),F(2,3),F(2,4)...</script>即可求的两个鸡蛋求得最小解<script type="math/tex">N</script>的值，<script type="math/tex">3</script>个鸡蛋也是类似情况。<script type="math/tex">3</script>个鸡蛋<script type="math/tex">4</script>层楼的状态如下所示:</p>
+<p><img src="/2019/08/16/887-Super-Egg-Drop/2.second.png" alt="3个鸡蛋4层楼状态"></p>
+<p><script type="math/tex">dp[K][H]</script>的值就是<script type="math/tex">K</script>个鸡蛋，<script type="math/tex">H</script>层楼 求得鸡蛋破碎楼层的最小尝试次数<script type="math/tex">N</script>.</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>golang实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">superEggDrop</span><span class="params">(K <span class="keyword">int</span>, H <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, H+<span class="number">1</span>)</span><br><span class="line">	pre := <span class="built_in">make</span>([]<span class="keyword">int</span>, H+<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= H; i++ &#123;</span><br><span class="line">		dp[i] = i</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">2</span>; i &lt;= K; i++ &#123;</span><br><span class="line">		<span class="built_in">copy</span>(pre, dp)</span><br><span class="line">		<span class="keyword">for</span> m := <span class="number">1</span>; m &lt;= H; m ++ &#123;</span><br><span class="line">			dp[m] = m</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">2</span>; j &lt;= H; j++ &#123;</span><br><span class="line">			min := <span class="keyword">int</span>(^<span class="keyword">uint</span>(<span class="number">0</span>) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">for</span> t := <span class="number">1</span>; t &lt;= j; t++ &#123;</span><br><span class="line">				max := max(dp[j-t], pre[t<span class="number">-1</span>]) + <span class="number">1</span></span><br><span class="line">				<span class="keyword">if</span> max &lt; min &#123;</span><br><span class="line">					min = max</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			dp[j] = min</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> dp[H]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">max</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> a &gt; b &#123;</span><br><span class="line">		<span class="keyword">return</span> a</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码已将空间复杂度<script type="math/tex">O(K \times H)</script>优化为 <script type="math/tex">O(H)</script>。</p>
+<h2 id="解法2"><a href="#解法2" class="headerlink" title="解法2."></a>解法2.</h2><p>解法1的时间复杂度为<script type="math/tex">O(K \times H \times H)</script> ，优化过的空间复杂度为<script type="math/tex">O(H)</script> . 这样的复杂度在leetcode上通过不了，超时了，有没有更优的解法呢？经过一番探索，发现还是有的，先看一下实现过程：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">superEggDrop</span><span class="params">(K <span class="keyword">int</span>, H <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	dp := <span class="built_in">make</span>([]<span class="keyword">int</span>, K+<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span>; dp[K] &lt; H; i++ &#123;</span><br><span class="line">		<span class="keyword">for</span> j := K; j &gt; <span class="number">0</span>; j-- &#123;</span><br><span class="line">			dp[j] += dp[j<span class="number">-1</span>] + <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是不是很惊讶，如此的简洁，就是实现了如此强大的功能，时间复杂度为<script type="math/tex">O(\alpha \times K)</script>, <script type="math/tex">\alpha</script> 是一个常数(其实等于最后的结果<script type="math/tex">i</script>)，但是不确定，可以肯定的是这个常数不大，远小于<script type="math/tex">H</script>(<script type="math/tex">2</script>个鸡蛋，<script type="math/tex">100</script>层楼的值为<script type="math/tex">\alpha</script> 为14)。空间复杂度为<script type="math/tex">O(K)</script>.</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>这里<script type="math/tex">i</script>表示<script type="math/tex">K</script>个鸡蛋尝试的次数，<script type="math/tex">dp</script>中保存在当前尝试次数<script type="math/tex">i</script>的情况下，每个鸡蛋可以到达的最大楼层。最核心的步骤是：<script type="math/tex">dp[j] += dp[j-1] + 1</script> 这一步表示在第<script type="math/tex">i</script>尝试下，第<script type="math/tex">j</script>个鸡蛋可以稳妥到达的最大楼层，为什么这么写呢？咱们以两个鸡蛋为例，列出<script type="math/tex">dp</script>的转移过程：<img src="/2019/08/16/887-Super-Egg-Drop/3. thrid.png" alt="尝试4次2个鸡蛋的转移过程"></p>
+<p>尝试<script type="math/tex">1</script>次，无论多少个鸡蛋都只能稳妥到达<script type="math/tex">1</script>层；</p>
+<p>…</p>
+<p>尝试<script type="math/tex">i</script>次，知道两个鸡蛋尝试<script type="math/tex">i-1</script>次最高到<script type="math/tex">max</script>层，尝试<script type="math/tex">i</script>次的话， 在<script type="math/tex">i-1</script>次尝试<script type="math/tex">max+1</script>扔下：</p>
+<blockquote>
+<p>a. 鸡蛋碎了：</p>
+<p>​    剩下<script type="math/tex">i-1</script>次机会，<script type="math/tex">j-1</script>个鸡蛋，可以检测<script type="math/tex">dp[j-1]</script> 层楼</p>
+<p>b. 鸡蛋没碎：</p>
+<p>​    剩下<script type="math/tex">i-1</script>次机会，<script type="math/tex">j</script>个鸡蛋，可以检测<script type="math/tex">dp[j]</script>层楼</p>
+<p>所以楼层在<script type="math/tex">[1, dp[j-1] + dp[j]+1]</script> 都可以覆盖到</p>
+</blockquote>
+<p>…</p>
+<p>当<script type="math/tex">dp[K] >= H</script> 时循环退出，此时的尝试次数<script type="math/tex">i</script>即为所求。</p>
+<h2 id="类似"><a href="#类似" class="headerlink" title="类似"></a>类似</h2><p>牛客上有一道类似题：<a href="https://www.nowcoder.com/questionTerminal/19a79b34213649ab97eb721675750d1a" target="_blank" rel="noopener">飞机最低可俯冲高度</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><p><a href="https://leetcode.com/problems/super-egg-drop/discuss/338940/Go-DP-solution" target="_blank" rel="noopener">leetcode:[Go] DP solution</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/41257286" target="_blank" rel="noopener">漫画：动态规划解决扔鸡蛋问题</a></p>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000016364846" target="_blank" rel="noopener">一篇文章带你搞定经典面试题之扔鸡蛋问题</a></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/10/Golang-M-P-G调度模型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -531,16 +757,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/09/Golang多个goroutine顺序打印自然数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
+      <meta itemprop="name" content="wozaizhe55">
       <meta itemprop="description" content="一个程序员的自我救赎">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
+      <meta itemprop="name" content="wozaizhe55's Blog">
     </span>
 
     
@@ -712,209 +938,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yuerenyu.github.io/2019/08/06/Golang的优势/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yueren.yu">
-      <meta itemprop="description" content="一个程序员的自我救赎">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yuerenyu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/06/Golang的优势/" class="post-title-link" itemprop="url">Golang的优势</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-06 21:14:00" itemprop="dateCreated datePublished" datetime="2019-08-06T21:14:00+08:00">2019-08-06</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-10 17:24:21" itemprop="dateModified" datetime="2019-08-10T17:24:21+08:00">2019-08-10</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Golang/" itemprop="url" rel="index"><span itemprop="name">Golang</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">826</span>
-            </span>
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>最近在面试，经常会被问到为什么选择Golang，Golang的优势体现在哪里。作为一个Goper这个问题回答的不是那么流畅，特在此总结一下。</p>
-<h1 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h1><p>Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.  — golang.org</p>
-<h2 id="速度快"><a href="#速度快" class="headerlink" title="速度快"></a>速度快</h2><p>Golang在执行效率和开发效率之间做到了协调，性能强劲，开发效率又不弱于python等动态语言。</p>
-<h3 id="执行速度快"><a href="#执行速度快" class="headerlink" title="执行速度快"></a>执行速度快</h3><p>Golang的执行效率虽然不及C、C++，但强于Java、C#，远远强于python这类动态语言。</p>
-<h3 id="开发速度快"><a href="#开发速度快" class="headerlink" title="开发速度快"></a>开发速度快</h3><p>Golang 拥有更智能的编译器，只关注被直接引用的库，不像Java、C和C++那样，要遍历依赖链中所有依赖的库，又不像动态语言那样缺少编译过程，类型错误无法捕捉。Golang编译极快，几乎感受不到编译过程。</p>
-<h2 id="并发友好"><a href="#并发友好" class="headerlink" title="并发友好"></a>并发友好</h2><p>现代计算机都拥有多个核心，但是大部分编程语言都没有有效的工具让程序可以轻易利用这些资源，需要编写大量同步代码来利用多核，很容易出错。Golang一个很重要的特性便是在系统层面支持并发，简化了并发程序的编写。</p>
-<h3 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h3><p>goroutine很像线程，但是它占用的内存远少于线程，使用它需要的代码也很少，一台普通的PC就能支持百万级别的goroutine调用。</p>
-<h3 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h3><p>channel是一种数据结构，可以让goroutine之间进行安全的数据通信。channel可以帮助用户避免其他语言里常见的共享内存访问的问题。</p>
-<h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><p>Golang仅有25个关键字，但是表达能力极强，几乎涵盖大多数编程特性：继承、多态、重载等。Golang的类型也非常简单，不仅支持常见的int、string，还可以像C一样自定义结构体。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>《Go语言实战》</li>
-<li><a href="https://www.zhihu.com/question/21409296" target="_blank" rel="noopener">为什么要使用 Go 语言？Go 语言的优势在哪里？</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -950,7 +973,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">yueren.yu</p>
+              <p class="site-author-name" itemprop="name">wozaizhe55</p>
               <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
           </div>
 
@@ -961,7 +984,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -992,7 +1015,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -1051,7 +1076,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">21</span>
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -1097,7 +1124,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">yueren.yu</span>
+  <span class="author" itemprop="copyrightHolder">wozaizhe55</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -1105,7 +1132,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">19k</span>
   
 
   
@@ -1114,7 +1141,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   
 </div>
 
@@ -1325,7 +1352,7 @@
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("Golang M-P-G调度模型");titles.push("Golang多个goroutine顺序打印自然数");titles.push("Golang的优势");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("887. Super Egg Drop");titles.push("Golang M-P-G调度模型");titles.push("Golang多个goroutine顺序打印自然数");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {
@@ -1351,6 +1378,8 @@
   
     
       
+        
+      
     
       
     
@@ -1358,6 +1387,46 @@
     
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
