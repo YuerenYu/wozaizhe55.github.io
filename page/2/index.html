@@ -1,23 +1,1482 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
 
-{% block title %}{{ title }}{% if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{% endif %}{% endblock %}
 
-{% block page_class %}
-  {% if is_home() %}page-home{% endif -%}
-{% endblock %}
 
-{% block content %}
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一个程序员的自我救赎">
+<meta name="keywords" content="技术,积累,分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wozaizhe55&#39;s Blog">
+<meta property="og:url" content="https://wozaizhe55.github.io/page/2/index.html">
+<meta property="og:site_name" content="wozaizhe55&#39;s Blog">
+<meta property="og:description" content="一个程序员的自我救赎">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wozaizhe55&#39;s Blog">
+<meta name="twitter:description" content="一个程序员的自我救赎">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://wozaizhe55.github.io/page/2/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>wozaizhe55's Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144563687-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144563687-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144563687-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-144563687-1');
+</script>
+  
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wozaizhe55's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-    {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
-    {% endfor %}
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2020/02/11/Github访问太慢/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/11/Github访问太慢/" class="post-title-link" itemprop="url">Github访问太慢</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-02-11 17:01:37" itemprop="dateCreated datePublished" datetime="2020-02-11T17:01:37+08:00">2020-02-11</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-30 19:12:00" itemprop="dateModified" datetime="2020-03-30T19:12:00+08:00">2020-03-30</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.5k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>众所周知的原因，国内访问国外网站速度不是太快，甚至访问不了，作为最大同性交友网站Github 是众多程序员的圣地也是如此，同样难免带宽几百M，下载几十k的尴尬。提高pull/push代码的速度是众多程序员的最大诉求。</p>
+<h2 id="方法一（需要能科学上网）"><a href="#方法一（需要能科学上网）" class="headerlink" title="方法一（需要能科学上网）"></a>方法一（需要能科学上网）</h2><ol>
+<li>查看科学上网端口 SS/SSR <strong>默认</strong>局域网代理端口是: 1080，协议有两种http/socks5，本文sockets为例，http 操作类似。</li>
+<li>设置全局代理</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<p>这种方式可以提高git clone <a href="https://www.github.com/xxx/xxx.git" target="_blank" rel="noopener">https://www.github.com/xxx/xxx.git</a> 的速度，但是不够完美，原因如下：</p>
+<ul>
+<li><p>挂了全局代理对国内的仓库会非常慢</p>
+</li>
+<li><p>上述设置对 ssh协议 无效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:xxx/xxx.git  # 同样会很慢</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>针对全局代理对国内仓库访问会非常慢，可以只针对GitHub进行代理设置：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.https://github.com.proxy socks5://127.0.0.1:1080</span><br><span class="line">git config --global https.https://github.com.proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<p>如果事先设置了全局代理，需要先取消：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<p><strong>针对 ssh 协议访问慢 需要修改 ~/.ssh/config 文件（不存在则新建, .ssh 为 windows 用户名下隐藏目录）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 必须是 github.com</span><br><span class="line">Host github.com</span><br><span class="line">   HostName github.com</span><br><span class="line">   User git</span><br><span class="line">   # 走 HTTP 代理</span><br><span class="line">   # ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=8080</span><br><span class="line">   # 走 socks5 代理（如 Shadowsocks）</span><br><span class="line">   # ProxyCommand nc -v -x 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+<h2 id="方法二（不需要科学上网）"><a href="#方法二（不需要科学上网）" class="headerlink" title="方法二（不需要科学上网）"></a>方法二（不需要科学上网）</h2><p>git clone/push 走的不是 github.com 这个域名，而是 github.global.ssl.fastly.Net 这个域名，突破 github.global.ssl.fastly.Net 这个域名的限制可以提高 clone/ push 的速度，可以在hosts  中增加域名映射来绕过。</p>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
+<li>访问 <a href="https://www.ipaddress.com" target="_blank" rel="noopener">https://www.ipaddress.com</a> 分别查到 github.com 和 github.global.ssl.fastly.Net 两个域名对应的 ip 地址</li>
+<li>将上述映射记录添加到 hosts 文件中生效即可</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">199.232.5.194 github.global.ssl.fastly.Net</span><br><span class="line">192.30.253.113 github.com</span><br></pre></td></tr></table></figure>
+<p>ps: hosts 文件位置</p>
+<p>windows( Administrator ) : C:\Windows\System32\drivers\etc\hosts  </p>
+<p>macOS / Linux ( root ) : /etc/hosts </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.zhihu.com/question/27159393/answer/141047266" target="_blank" rel="noopener">git clone一个github上的仓库，太慢，经常连接失败，但是github官网流畅访问，为什么？ - 汪小九的回答 - 知乎 </a></li>
+<li><p><a href="https://github.com/ly2011/blog/issues/126" target="_blank" rel="noopener">完美解决github访问速度慢</a></p>
+</li>
+<li><p><a href="https://gist.github.com/chuyik/02d0d37a49edc162546441092efae6a1" target="_blank" rel="noopener">macOS 给 Git(Github) 设置代理（HTTP/SSH）</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2020/02/09/Linux创建swap分区-文件方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/09/Linux创建swap分区-文件方式/" class="post-title-link" itemprop="url">Linux创建swap分区(文件方式)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-02-09 21:09:10" itemprop="dateCreated datePublished" datetime="2020-02-09T21:09:10+08:00">2020-02-09</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-01-31 17:21:22" itemprop="dateModified" datetime="2021-01-31T17:21:22+08:00">2021-01-31</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">824</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>对于服务器来说内存比较昂贵，需求不是特别强的时候经常采用swap(Windows 下叫虚拟内存)来节省一部分内存，现在SSD做swap的话速度比之前机械硬盘也有很高提升。</p>
+<p>自己经常需要这个操作，总是忘记命令，特此记录一下便于后续查找。</p>
+<h2 id="划分swap分区的两种方式"><a href="#划分swap分区的两种方式" class="headerlink" title="划分swap分区的两种方式"></a>划分swap分区的两种方式</h2><ol>
+<li>通过创建分区来创建</li>
+<li>通过文件方式创建</li>
+</ol>
+<p>第1种方式要求比较高些，同时操作起来也比较复杂些，本文主要写一下第2种方式，比较简单适合我这样的选手😅</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ul>
+<li>创建要作为swap分区的文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=/root/swapfile bs=1M count=1024</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建一个 /root/swapfile 文件，块大小为1M，共1024块，也就是创建了一个1GB的文件</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>将创建的文件格式化为交换分区文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkswap /root/swapfile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 建立swap的文件系统</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>启用交换分区文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">swapon /root/swapfile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启用swap文件</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>开机自启动</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在文件/etc/fstab 中追加一行</span></span><br><span class="line">/root/swapfile swap swap defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>至此 swap分区创建完毕，上述步骤中 /root/swapfile 为文件实际路径，可以根据实际情况进行调整。</p>
+<h3 id="swap优先级"><a href="#swap优先级" class="headerlink" title="swap优先级"></a>swap优先级</h3><p>有些需要告诉操作系统积极地使用swap，需要提高swap的优先级，可以通过设置swappiness的值来告诉操作系统。</p>
+<ul>
+<li>查看当前swappiness</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/sys/vm/swappiness</span><br><span class="line"><span class="meta">#</span><span class="bash"> 0 - 100 越高表示越积极地使用swap分区</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>临时修改swappiness（重启丢失）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl vm.swappiness=10</span><br></pre></td></tr></table></figure>
+<ul>
+<li>永久修改swappiness（重启生效）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在文件 /etc/sysctl.conf 追加一行</span></span><br><span class="line">vm.swappiness=80</span><br></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://blog.csdn.net/Jerry_1126/article/details/79920390" target="_blank" rel="noopener">Linux中创建swap分区</a></li>
+<li><p><a href="https://blog.csdn.net/qq_37968132/article/details/81584027" target="_blank" rel="noopener">Linux调整swap空间使用的优先级</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/qq_33160790/article/details/77488160" target="_blank" rel="noopener">Linux 下的dd命令使用详解以及dd if=/dev/zero of=的含义</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wozaizhe55.github.io/2019/08/20/哪吒之魔童降世-观后感/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wozaizhe55">
+      <meta itemprop="description" content="一个程序员的自我救赎">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wozaizhe55's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/20/哪吒之魔童降世-观后感/" class="post-title-link" itemprop="url">哪吒之魔童降世 观后感</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-20 14:59:46" itemprop="dateCreated datePublished" datetime="2019-08-20T14:59:46+08:00">2019-08-20</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-08-21 08:49:57" itemprop="dateModified" datetime="2019-08-21T08:49:57+08:00">2019-08-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/观后感/" itemprop="url" rel="index"><span itemprop="name">观后感</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.5k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>《哪吒之魔童降世》火爆了今年的暑期档，随着口碑的不断发酵，票房一路飙升，突破了40亿大关紧追《复仇者联盟4：终局之战》。豆瓣评分8.6，淘票票评分更是高达9.5，而我终于按耐不住，为其贡献了票房。</p>
+<h1 id="第一感受"><a href="#第一感受" class="headerlink" title="第一感受"></a>第一感受</h1><p>这部电影看的值！无论从剧情还是特效，都值得去电影院观看。剧情的讲解分析，这里不作介绍，感兴趣的同学可以自行搜索。特效解读我也不是专业的，可以看一下大佬们的解读文章，这里重点提一下我的观影思考。</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>心理学家阿德勒在《自卑与超越》一书中提到：叛逆的孩子之所以叛逆是为了要引起别人的注意，叛逆不是他的目的，只是表达自己缺乏爱的方式而已，人是需要被爱的。这个观点在《哪吒之魔童降世》中体现的淋漓尽致。分别从以下分别从几个方面分析：</p>
+<ul>
+<li>主人公：哪吒</li>
+<li>父母：李靖夫妇</li>
+<li>社会：太乙真人、敖丙、陈塘关百姓</li>
+</ul>
+<h2 id="主人公-哪吒"><a href="#主人公-哪吒" class="headerlink" title="主人公 哪吒"></a>主人公 哪吒</h2><p>一出生的哪吒便在庭院里暴走，吓坏众人，这也是陈塘关百姓对其存在偏见的根本原因，加之陈塘关一直饱受妖怪困扰，也就有了后来百姓对哪吒的排斥。从哪吒的角度来看，他自己并不知道出生就暴走的事实，他知道的仅仅是百姓对他始终存在恶意，却不知道是为什么。</p>
+<p>人之初，性本善。哪吒在心性还能够自控的时候其实是很善良的，对他没有敌意的小朋友，他对别人也很好，而戴着有色眼睛看待他的村民，一直饱受他的捉弄。这也证明了观点：你如何对待别人，别人也将如何对待你。</p>
+<p>哪吒在得知自己是“灵珠”转世的时候，主动担当起拯救百姓的重任，追捕海夜叉，救回孩童。村民深受第一印象毒害，认为哪吒还是那个净惹事生非的魔王，非但没有对他英雄救人的行为认可，还恶言相对，最终哪吒向其大打出手。</p>
+<p>哪吒内心是渴望得到认同与关爱的，在江山社稷图中，殷夫人给哪吒讲那一番话的时候，他攥紧了拳头，这才有了上边追捕海夜叉想为村民做事情的想法。</p>
+<p>李靖夫妇担任镇守陈塘关，公务繁忙，无暇照顾年幼的哪吒，缺少父母关爱的哪吒也对世人充满敌意，认为别人都不关心他。然而影片中，小猪座骑的镜像让他看到了父母是始终爱他的，知道自己是被爱的，内心中所有的恶意、不满便消失而去，唤起了责任感、使命感，将影片推向高潮。</p>
+<p>成熟的哪吒对自己的能力有清晰的认识，乾坤圈能够压制心魔，同时也会束缚能力，为了对抗敖丙，哪吒知道自己无法驾驭完全状态，没有全开，将乾坤圈缩小成一个手镯，戴在手上，释放了能力的同时也束缚着心魔。</p>
+<p>至此，哪吒的分析就结束了。总的来说，哪吒是一个内心渴望被认同、被爱的孩子，他也想完成大的使命，但是不愿被误会，一旦误会解开，知道父母一直深爱着自己，哪吒变得非常成熟、懂事，这便是爱的力量吧。</p>
+<h2 id="父母"><a href="#父母" class="headerlink" title="父母"></a>父母</h2><p>不得不说剧中的哪吒是幸运的，有李靖夫妇这样的父母，我觉得现实中的父母可以借鉴一下剧中哪吒父母的教育方式。</p>
+<p>得知哪吒是魔丸转世的时候，依旧拼死保护哪吒，为了在天雷中救下哪吒，不惜用自己的生命做交换，父母真的好伟大！</p>
+<p>哪吒做错事的时候，严厉惩罚，但又让哪吒拜太乙真人为师学习本领。罚归罚，正确的引导还是要做的。</p>
+<p>哪吒不好好学习本领时候，殷夫人殷切开导，搬事实，讲道理，而不是一味的责怪。</p>
+<p>哪吒被误会的时候，没有急于责罚哪吒，而是先调查清楚事情真相，得知哪吒是被误会的时候，挨家挨户向村民解释，并恳请村民给哪吒庆生。</p>
+<p>有这样懂得良好教育方式的深爱着自己的父母，不得不说哪吒是幸运的。</p>
+<h2 id="社会"><a href="#社会" class="headerlink" title="社会"></a>社会</h2><p>师父太乙真人在剧中扮演了一个搞笑的角色，在欢声笑语中将本领教给了哪吒。</p>
+<p>朋友敖丙对哪吒的认同，给哪吒以极大的信心，以至于得知自己将要办庆生宴的时候，立马写了请柬给敖丙送过去，顺手还画了路线图。</p>
+<p>村民一直戴有色眼睛看哪吒，哪吒也不给他们好脸色，时常搞一些恶作剧整村民。可见第一印象是多么的重要。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>希望当一个叛逆孩子出现的时候，都能得到正确的引导吧！</p>
+<p>叛逆不是目的，爱才是。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">wozaizhe55</p>
+              <div class="site-description motion-element" itemprop="description">一个程序员的自我救赎</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wozaizhe55</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">18k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">17 mins.</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.2.0</div>
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyBARlpl36Sfo9mNVgClOin2JW7KeM7KG2w',
+        projectId: 'my-blog-247909'
+      })
+
+      function getCount(doc, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+                $('<i>').addClass('fa fa-users')
+              )
+              ).append($('<span>').text('Views ' + count))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/docs/variables.html
+      var isPost = ''.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      if (isPost) { //is article page
+        var title = ''
+        var doc = articles.doc(title)
+
+        getCount(doc, true).then(appendCountTo($('.post-meta')))
+      }
+      else if (!isArchive && !isCategory && !isTag) { //is index page
+        var titles = [] //array to titles
+
+        var postsstr = 'titles.push("Github访问太慢");titles.push("Linux创建swap分区(文件方式)");titles.push("哪吒之魔童降世 观后感");' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          var metas = $('.post-meta')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
